@@ -54,6 +54,7 @@ a {
   font-weight: 600;
   border-radius: 10px;
   margin-right: 60px;
+  cursor: pointer;
 }
 .menu-btn {
   display: none;
