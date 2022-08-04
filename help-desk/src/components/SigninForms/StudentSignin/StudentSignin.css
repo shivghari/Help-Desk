@@ -1,0 +1,239 @@
+.SigninContainer {
+  width: 65%;
+  margin: auto;
+  border: 3px solid #e4e4e4;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.FormPart {
+  width: 55%;
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+
+.titleContainer {
+  width: 98px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+h2 {
+  font-style: "Lato";
+  margin: auto;
+}
+
+label {
+  font-size: 18px;
+}
+
+.signInInput {
+  width: 90%;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #d1d1d1;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-left: 8px;
+}
+
+.signInInput:focus {
+  outline: none;
+}
+
+#photoInput {
+  margin-top: 7px;
+  display: none;
+}
+
+.fileLabel {
+  height: min-content;
+  width: 50px;
+}
+
+.PhotoSelecAndHolder {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: -30px;
+}
+
+.profilePicture {
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+.dummyDiv {
+  width: 50%;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #d1d1d1;
+  font-size: 15px;
+  margin-top: 5px;
+  padding-left: 8px;
+}
+.signinForm {
+  margin-top: 20px;
+}
+
+.agreeContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.checkBox {
+  width: 20px;
+  height: 20px;
+}
+
+.agreeDetails {
+  margin-left: 10px;
+}
+
+.signinBtn {
+  padding: 10px 60px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #282828;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  margin: auto;
+}
+
+.HelpDeskHeading {
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.InstructionPart {
+  width: 45%;
+  background-color: #282828;
+}
+
+.brandLine {
+  color: white;
+  text-align: center;
+}
+
+.privacyContainer {
+  margin-top: 50px;
+}
+
+.privacyHeading {
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.privacyContent {
+  width: 70%;
+  color: white;
+  text-align: center;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.termsContainer {
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  padding-left: 50px;
+}
+
+li {
+  color: white;
+}
+
+.lockIcon {
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+@media (max-width: 920px) {
+  .PhotoSelecAndHolder {
+    width: 100%;
+  }
+}
+
+@media (max-width: 613px) {
+  .SigninContainer {
+    width: 98%;
+    border: none;
+    margin: auto;
+  }
+
+  .FormPart {
+    width: 100%;
+  }
+
+  .signinBtn {
+    margin: auto;
+  }
+
+  .InstructionPart {
+    width: 100%;
+  }
+
+  .PhotoSelecAndHolder {
+    width: 70%;
+  }
+}
+
+@media (max-width: 582px) {
+  .SigninContainer {
+    width: 99%;
+    border: none;
+    margin: auto;
+  }
+
+  .FormPart {
+    width: 100%;
+  }
+
+  .signinBtn {
+    margin: auto;
+  }
+
+  .InstructionPart {
+    width: 100%;
+  }
+
+  .PhotoSelecAndHolder {
+    width: 100%;
+  }
+}
+
+@media (max-width: 477px) {
+  .SigninContainer {
+    display: block;
+    width: 98%;
+    border: none;
+  }
+
+  .FormPart {
+    width: 100%;
+  }
+
+  .signinBtn {
+    margin: auto;
+  }
+
+  .InstructionPart {
+    width: 100%;
+  }
+
+  .PhotoSelecAndHolder {
+    width: 70%;
+  }
+}
