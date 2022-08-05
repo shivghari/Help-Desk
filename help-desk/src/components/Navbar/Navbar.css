@@ -62,7 +62,7 @@ a {
 .side {
   display: none;
 }
-.item{
+.item {
   list-style: none;
 }
 .show {
@@ -92,6 +92,7 @@ a {
   }
   .menu-btn {
     display: block;
+    margin-right: 20px;
   }
 
   .hide {
@@ -140,5 +141,9 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  .nav-login {
+    padding: 8px 0px 8px 17px;
+    margin-right: 0;
   }
 }

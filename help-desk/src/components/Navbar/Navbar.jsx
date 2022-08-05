@@ -40,11 +40,24 @@ export default function Navbar() {
       <div className={scrolled ? "sticky" : "nav"}>
         <div className="logo-navbar">
           <div className="logo">
-            <h2 className="logo-text">SDI</h2>
+            <h2
+              className="logo-text"
+              onClick={() => {
+                Navigate("/");
+              }}
+            >
+              SDI
+            </h2>
           </div>
           <div className="Navbar-items">
             <ul>
-              <li>Home</li>
+              <li
+                onClick={() => {
+                  Navigate("/");
+                }}
+              >
+                Home
+              </li>
               <li>Services</li>
               <li>About us</li>
               <li>Contact us</li>
@@ -56,7 +69,14 @@ export default function Navbar() {
             <div className="cancel-btn" onClick={handlecancel}>
               <i className="fas fa-times" onClick={handlecancel}></i>
             </div>
-            <li className="item">Home</li>
+            <li
+              className="item"
+              onClick={() => {
+                console.log("Helo");
+              }}
+            >
+              Home
+            </li>
             <li className="item">Services</li>
             <li className="item">About us</li>
             <li className="item">Contact us</li>

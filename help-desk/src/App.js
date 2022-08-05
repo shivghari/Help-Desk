@@ -8,17 +8,16 @@ import Home from "./components/Home/Home";
 //routing imports
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
 function App() {
   return (
     <>
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route exact path="signin" element={<StudentSignin />}></Route>
-          <Route exact path="home" element={<Home />}></Route>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/signin" element={<StudentSignin />}></Route>
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </>
   );
