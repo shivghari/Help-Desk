@@ -1,0 +1,235 @@
+.yourcomplaint{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.student_yourcomplaint{
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.student_yourcomplaint h1{
+    font-size: 25px;
+    text-align: center;
+}
+.yourcomplaint_options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    height: 40px;
+}
+.yourcomplaint_options h3{
+    font-size: 18px;
+}
+.yourcomplaint_options h3:hover{
+    border-bottom: 1px solid #000000;
+}
+.allcomplaint{
+    width: 60%;
+    margin: 15px auto;
+}
+.complaint_info{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 12px;
+    border: 1px solid #EEEEEE;
+}
+.ablackimg{
+    border-radius: 50%;
+    padding: 15px 20px;
+    background-color: lightblue;
+}
+.complaint_infodetails{
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+.complaint_infoname{
+    display: flex;
+}
+.complaint_infoname h3{
+    font-size: 18px;
+}
+.complaint_infodetails h5{
+    color: #B5B5B5;
+    font-weight: 500;
+    font-size: 14px;
+}
+.complaint_infodetails p{
+    font-size: 14px;
+    color: #959292;
+}
+.status_edit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.status{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.status h4{
+    font-size: 16px;
+}
+.status span{
+    margin-left: 10px;
+    font-size: 16px;
+    color: red;
+}
+.edit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+}
+.complaint_title{
+    font-size: 16px;
+}
+.editcomplaint{
+    padding: 8px 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 15px;
+}
+.deletecomplaint{
+    padding: 8px 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px){
+    .allcomplaint{
+        width: 80%;
+    }
+}
+@media (max-width: 666px){
+    .allcomplaint{
+        width: 90%;
+    }
+}
+@media (max-width: 582px){
+    .allcomplaint{
+        width: 95%;
+    }
+}
+@media (max-width: 560px){
+    .student_yourcomplaint h1{
+        font-size: 16px;
+    }
+    .yourcomplaint_options{
+        margin-bottom: 0px;
+    }
+    .yourcomplaint_options h3{
+        font-size: 12px;
+    }
+    .complaint_info{
+        padding: 5px;
+    }
+    .complaint_infodetails{
+        margin-left: 10px;
+    }
+    .complaint_infoname h3 {
+        font-size: 16px;
+    }
+    .ablackimg{
+        padding: 10px 15px;
+    }
+    .complaint_infoname h3 {
+        font-size: 14px;
+    }
+    .complaint_infodetails h5 {
+        font-size: 13px;
+    }
+    .complaint_title {
+        font-size: 14px;
+    }
+    .complaint_infodetails p {
+        font-size: 12px;
+    }
+    .status h4 {
+        font-size: 14px;
+    }
+    .status span {
+        font-size: 14px;
+    }
+    .editcomplaint {
+        padding: 5px;
+        font-size: 12px;
+        margin-right: 10px;
+    }
+    .deletecomplaint {
+        padding: 5px;
+        font-size: 12px;
+        margin-right: 0px;
+    }
+}
+@media (max-width: 413px){
+    .student_complaint h1{
+        font-size: 13px;
+    }
+    .yourcomplaint_options h3{
+        font-size: 10px;
+    }
+    .ablackimg {
+        padding: 4px 10px;
+    }
+    .complaint_info{
+        padding: 4px;
+    }
+    .complaint_infodetails{
+        margin-left: 7px;
+    }
+    .complaint_infoname h3 {
+        font-size: 14px;
+    }
+    .complaint_infoname h3 {
+        font-size: 12px;
+    }
+    .complaint_infodetails h5 {
+        font-size: 12px;
+    }
+    .complaint_title {
+        font-size: 12px;
+    }
+    .complaint_infodetails p {
+        font-size: 11px;
+    }
+    .status h4 {
+        font-size: 12px;
+    }
+    .status span {
+        font-size: 12px;
+        margin-left: 5px;
+    }
+    .editcomplaint {
+        padding: 3px;
+        font-size: 9px;
+        margin-right: 3px;
+    }
+    .deletecomplaint {
+        padding: 3px;
+        font-size: 9px;
+    }
+    .status{
+        margin-right: 5px;
+    }
+}
