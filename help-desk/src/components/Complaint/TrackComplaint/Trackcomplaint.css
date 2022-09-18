@@ -1,0 +1,208 @@
+.trackcomplaint{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.student_trackcomplaint{
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.student_trackcomplaint h1{
+    font-size: 25px;
+    text-align: center;
+}
+.trackcomplaint_options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    height: 40px;
+}
+.trackcomplaint_options h3{
+    font-size: 18px;
+}
+.trackcomplaint_options h3:hover{
+    border-bottom: 1px solid #000000;
+}
+.track_allcomplaint{
+    width: 60%;
+    margin: 15px auto;
+}
+.trackcomplaint_info{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 12px;
+    border: 1px solid #EEEEEE;
+}
+.track_ablackimg{
+    border-radius: 50%;
+    padding: 15px 20px;
+    background-color: lightblue;
+}
+.trackcomplaint_infodetails{
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+.trackcomplaint_infoname{
+    display: flex;
+}
+.trackcomplaint_infoname h3{
+    font-size: 18px;
+}
+.trackcomplaint_infodetails h5{
+    color: #B5B5B5;
+    font-weight: 500;
+    font-size: 14px;
+}
+.trackcomplaint_infodetails p{
+    font-size: 14px;
+    color: #959292;
+}
+.trackcomplaint_title{
+    font-size: 16px;
+}
+.stepper{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: black;
+}
+.track_status{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.track_status h4{
+    font-size: 16px;
+}
+.track_status span{
+    font-size: 16px;
+    color: red;
+    margin-left: 10px;
+}
+
+@media (max-width: 768px){
+    .track_allcomplaint{
+        width: 80%;
+    }
+}
+@media (max-width: 666px){
+    .track_allcomplaint{
+        width: 90%;
+    }
+}
+@media (max-width: 582px){
+    .track_allcomplaint{
+        width: 95%;
+    }
+}
+@media (max-width: 560px){
+    .student_trackcomplaint h1{
+        font-size: 16px;
+    }
+    .trackcomplaint_options{
+        margin-bottom: 0px;
+    } 
+    .trackcomplaint_options h3{
+        font-size: 12px;
+    }
+    .trackcomplaint_info{
+        padding: 5px;
+    }
+    .trackcomplaint_infodetails{
+        margin-left: 10px;
+    }
+    .trackcomplaint_infoname h3 {
+        font-size: 16px;
+    }
+    .track_ablackimg{
+        padding: 10px 15px;
+    }
+    .trackcomplaint_infoname h3 {
+        font-size: 14px;
+    }
+    .trackcomplaint_infodetails h5 {
+        font-size: 13px;
+    }
+    .trackcomplaint_title {
+        font-size: 14px;
+    }
+    .trackcomplaint_infodetails p {
+        font-size: 12px;
+    }
+    .track_status h4 {
+        font-size: 14px;
+    }
+    .track_status span {
+        font-size: 14px;
+    }
+}
+@media (max-width: 460px){
+    .css-n7tliy-MuiStep-root {
+        padding-left: 0px;
+    }
+    .css-qivjh0-MuiStepLabel-label{
+        font-size: 12px;
+    }
+    .track_ablackimg {
+        padding: 5px 10px;
+    }
+    .trackcomplaint_infodetails {
+        margin-left: 5px;
+    }
+}
+@media (max-width: 413px){
+    .student_trackcomplaint h1{
+        font-size: 13px;
+    }
+    .trackcomplaint_options h3{
+        font-size: 10px;
+    }
+    .track_ablackimg {
+        padding: 4px 10px;
+    }
+    .trackcomplaint_info{
+        padding: 4px;
+    }
+    .trackcomplaint_infodetails{
+        margin-left: 7px;
+    }
+    .trackcomplaint_infoname h3 {
+        font-size: 14px;
+    }
+    .trackcomplaint_infoname h3 {
+        font-size: 12px;
+    }
+    .trackcomplaint_infodetails h5 {
+        font-size: 12px;
+    }
+    .trackcomplaint_title {
+        font-size: 12px;
+    }
+    .trackcomplaint_infodetails p {
+        font-size: 11px;
+    }
+    .track_status h4 {
+        font-size: 12px;
+    }
+    .track_status span {
+        font-size: 12px;
+        margin-left: 5px;
+    }
+}
+@media (max-width: 378px){
+    .css-qivjh0-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+        margin-top: 8px;
+    }
+    .css-qivjh0-MuiStepLabel-label {
+        font-size: 10px;
+    }
+}
