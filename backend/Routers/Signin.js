@@ -92,7 +92,7 @@ router.post(
         password: "darshan@123",
         field: "Computer Engineering",
         education: "Ast. Prof. Compter",
-        monileNo: 9724333903,
+        mobileNo: 9724333903,
         studentList: ["63272584fd2374f71b6f61b8"],
       });
 
