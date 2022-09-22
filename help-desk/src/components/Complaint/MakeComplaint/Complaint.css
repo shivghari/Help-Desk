@@ -1,9 +1,9 @@
-.Complaint{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.Complaint {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.student_complaint{
+/* .student_complaint{
     margin: 0 auto;
     width: 100%;
     margin-top: 10px;
@@ -26,118 +26,118 @@
 }
 .complaint_options h3:hover{
     border-bottom: 1px solid #000000;
+} */
+.make_complaint {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 100%;
 }
-.make_complaint{
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    margin-top: 10px;
-    width: 100%;
+.write_complaint {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
-.write_complaint{
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 30px;
+.write_complaint h3 {
+  font-size: 17px;
 }
-.write_complaint h3{
-    font-size: 17px;
+.complaint_form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  /* justify-content: space-evenly; */
+  margin: 0 auto;
 }
-.complaint_form{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    /* justify-content: space-evenly; */
-    margin: 0 auto;
+.complaint_fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
 }
-.complaint_fields{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
+.complaint_fields label {
+  font-size: 15px;
+  font-weight: 600;
 }
-.complaint_fields label{
-    font-size: 15px;
-    font-weight: 600;
+.complaint_input {
+  height: 35px;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-left: 8px;
 }
-.complaint_input{
-    height: 35px;
-    border-radius: 10px;
-    border: 1px solid #d1d1d1;
-    font-size: 15px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    padding-left: 8px;
+.complaint_textinput {
+  border-radius: 5px;
+  border: 1px solid #d1d1d1;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-left: 8px;
 }
-.complaint_textinput{
-    border-radius: 5px;
-    border: 1px solid #d1d1d1;
-    font-size: 15px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    padding-left: 8px;
+.complaint_to {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid #d1d1d1;
+  padding: 8px;
+  border-radius: 5px;
 }
-.complaint_to{
-    margin-top: 5px;
-    margin-bottom: 10px;
-    font-weight: 600;
-    font-size: 12px;
-    border: 1px solid #d1d1d1;
-    padding: 8px;
-    border-radius: 5px;
+.complaint_button {
+  padding: 8px 40px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #282828;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  /* display: flex; */
+  margin: auto;
+  cursor: pointer;
 }
-.complaint_button{
-    padding: 8px 40px;
-    font-size: 16px;
-    font-weight: 500;
-    background-color: #282828;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    /* display: flex; */
-    margin: auto;
-    cursor: pointer;
+.serverity label {
+  font-size: 23px;
 }
-.serverity label{
-    font-size: 23px;
+.complaint_rules {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
 }
-.complaint_rules{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 50%;
+.rules_method {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.rules_method{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.rules_method h5 {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-.rules_method h5{
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.rules_method p {
+  font-size: 15px;
+  color: #8a8a8a;
+  margin-bottom: 8px;
 }
-.rules_method p{
-    font-size: 15px;
-    color: #8A8A8A;
-    margin-bottom: 8px;
+.take_care {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }
-.take_care{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
+.take_care h3 {
+  text-align: center;
+  font-size: 17px;
 }
-.take_care h3{
-    text-align: center;
-    font-size: 17px;
-}
-.isolation{
-    height: 34rem;
-    /* width: 1px; */
-    border: 1px solid #EEEEEE;
-    margin-right: 25px;
-    margin-left: 25px;
-    /* background-color: black; */
+.isolation {
+  height: 29rem;
+  /* width: 1px; */
+  border-left: 2px solid #eeeeee;
+  margin-right: 25px;
+  margin-left: 25px;
+  /* background-color: black; */
 }
 /* .isolation{
     display: flex;
@@ -151,65 +151,65 @@
     background-color: black;
 } */
 
-@media (max-width: 768px){
-    .complaint_form{
-        flex-direction: column;
-        align-items: center;
-    }
-    .isolation{
-        display: none;
-    }
-    .complaint_fields{
-        width: 90%;
-    }
-    .complaint_button{
-        margin-bottom: 30px;
-    }
-    .complaint_rules{
-        width: 90%;
-    }
-    .student_complaint h1{
-        font-size: 16px;
-    }
-    .complaint_options h3{
-        font-size: 12px;
-    }
-    .write_complaint h3{
-        font-size: 14px;
-    }
-    .make_complaint{
-        margin-top: 0px;
-    }
+@media (max-width: 768px) {
+  .complaint_form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .isolation {
+    display: none;
+  }
+  .complaint_fields {
+    width: 90%;
+  }
+  .complaint_button {
+    margin-bottom: 30px;
+  }
+  .complaint_rules {
+    width: 90%;
+  }
+  .student_complaint h1 {
+    font-size: 16px;
+  }
+  .complaint_options h3 {
+    font-size: 12px;
+  }
+  .write_complaint h3 {
+    font-size: 14px;
+  }
+  .make_complaint {
+    margin-top: 0px;
+  }
 }
-@media (max-width: 377px){
-    .complaint_button{
-        margin-bottom: 30px;
-    }
-    .student_complaint h1{
-        font-size: 13px;
-    }
-    .complaint_options h3{
-        font-size: 10px;
-    }
-    .write_complaint h3{
-        font-size: 12px;
-    }
-    .complaint_options{
-        margin-bottom: 0px;
-    }
-    .complaint_fields label{
-        font-size: 13px;
-    }
-    .serverity label{
-        font-size: 23px;
-    }
-    .rules_method h5{
-        font-size: 16px;
-    }
-    .rules_method p{
-        font-size: 12px;
-    }
-    .take_care h3{
-        font-size: 15px;
-    }
+@media (max-width: 377px) {
+  .complaint_button {
+    margin-bottom: 30px;
+  }
+  .student_complaint h1 {
+    font-size: 13px;
+  }
+  .complaint_options h3 {
+    font-size: 10px;
+  }
+  .write_complaint h3 {
+    font-size: 12px;
+  }
+  .complaint_options {
+    margin-bottom: 0px;
+  }
+  .complaint_fields label {
+    font-size: 13px;
+  }
+  .serverity label {
+    font-size: 23px;
+  }
+  .rules_method h5 {
+    font-size: 16px;
+  }
+  .rules_method p {
+    font-size: 12px;
+  }
+  .take_care h3 {
+    font-size: 15px;
+  }
 }
