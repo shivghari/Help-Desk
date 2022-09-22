@@ -7,9 +7,18 @@ import Rating from "@mui/material/Rating";
 import Avatar from "@mui/material/Avatar";
 
 import data from "../TrackComplaint/com";
+import { StepContent, Typography } from "@mui/material";
+import { useEffect } from "react";
 
 function Trackcomplaint() {
   const [value, setValue] = useState(null);
+
+  const [screenWidth, setscreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    setscreenWidth(window.innerWidth);
+    console.log("Width Chnages");
+  }, []);
 
   const steps = [
     "Complaint Sent",
@@ -21,14 +30,6 @@ function Trackcomplaint() {
   return (
     <>
       <div className="trackcomplaint">
-        {/* <div className='student_trackcomplaint'>
-                <h1>Student Complaint Management Portal</h1>
-                <div className='trackcomplaint_options'>
-                        <h3>Make Complaint</h3>
-                        <h3>Track Complaint</h3>
-                        <h3>Your Complaint</h3>
-                </div>
-            </div> */}
         {data.map((val) => {
           return (
             <>
@@ -55,17 +56,30 @@ function Trackcomplaint() {
                         setValue(newValue);
                       }}
                     />
-                    <Stepper
-                      activeStep={1}
-                      alternativeLabel
-                      className="stepper"
-                    >
-                      {steps.map((label) => (
-                        <Step key={label}>
-                          <StepLabel>{label}</StepLabel>
-                        </Step>
-                      ))}
-                    </Stepper>
+                    {screenWidth > 425 ? (
+                      <Stepper
+                        activeStep={1}
+                        alternativeLabel
+                        className="stepper"
+                      >
+                        {steps.map((label) => (
+                          <Step key={label}>
+                            <StepLabel>{label}</StepLabel>
+                          </Step>
+                        ))}
+                      </Stepper>
+                    ) : (
+                      <Stepper activeStep={3} orientation="vertical">
+                        {steps.map((step, index) => (
+                          <Step key={step.label}>
+                            <StepLabel>{step}</StepLabel>
+                            <StepContent>
+                              <Typography>{step.description}</Typography>
+                            </StepContent>
+                          </Step>
+                        ))}
+                      </Stepper>
+                    )}
                     <div className="track_status">
                       <h4>Status:</h4>
                       <span className="trackstatus_result">{val.status}</span>
@@ -73,6 +87,9 @@ function Trackcomplaint() {
                   </div>
                 </div>
               </div>
+              {/* Checking The Stepper Bertical */}
+
+              {/* End Cheking */}
             </>
           );
         })}

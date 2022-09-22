@@ -10,14 +10,6 @@ function Yourcomplaint() {
   return (
     <>
       <div className="yourcomplaint">
-        {/* <div className='student_yourcomplaint'>
-                <h1>Student Complaint Management Portal</h1>
-                <div className='yourcomplaint_options'>
-                        <h3>Make Complaint</h3>
-                        <h3>Track Complaint</h3>
-                        <h3>Your Complaint</h3>
-                </div>
-            </div> */}
         {data.map((val) => {
           return (
             <>
