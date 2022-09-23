@@ -156,6 +156,13 @@ li {
   color: white;
 }
 
+.loginLink {
+  color: #828282;
+  font-size: 15px;
+  width: fit-content;
+  margin-top: 10px;
+}
+
 .lockIcon {
   width: fit-content;
   margin: 0 auto;

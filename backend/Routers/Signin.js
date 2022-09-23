@@ -4,7 +4,12 @@ const Faculties = require("../Models/Faculties");
 const router = express.Router();
 const nodemailer = require("nodemailer");
 const bcrypt = require("bcryptjs");
-var jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
+const bodyParser = require("body-parser");
+const multer = require("multer");
+const upload = multer({ dest: "uploads" });
+const fs = require("fs");
+const path = require("path");
 
 const JWT_SECRET = "Darshanisagoodb$oy";
 
@@ -26,48 +31,71 @@ transporter.verify((error, success) => {
   }
 });
 
+//body-parser configuration
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
+
 //ROUTE:1 create a user using: POST  "/signin/createuser". No Login required
-router.post(
-  "/createuser",
-
-  async (req, res) => {
-    let success = false;
-    try {
-      //check whether the user with this email exits already
-      let user = await User.findOne({ enrollNo: req.body.enrollNo });
-      if (user) {
-        return res.status(400).json({
-          success,
-          error: "sorry a user with this email already exists",
-        });
-      }
-
-      // create a new user
-      user = await User.create({
-        userName: "Darshan Patel",
-        enrollNo: "201903103510142",
-        email: "pateldarshan2910@gmail.com",
-        password: "darshan@123",
-        field: "Computer Engineering",
-        semester: 7,
-        className: "CE-A",
+router.post("/createuser", upload.single("userPhoto"), async (req, res) => {
+  let success = false;
+  try {
+    //check whether the user with this email exits already
+    let user = await User.findOne({ enrollNo: req.body.enrollNo });
+    if (user) {
+      return res.status(400).json({
+        success,
+        error: "Sorry a user with this email already exists",
       });
-
-      const data = {
-        user: {
-          enrollNo: user.enrollNo,
-        },
-      };
-      const authtoken = jwt.sign(data, JWT_SECRET);
-
-      success = true;
-      res.json({ success, authtoken });
-    } catch (error) {
-      console.log(error.message);
-      res.status(500).send("Internal Server Error");
     }
+    console.log(req.body.userPhoto);
+    // create a new user
+    if (req.file) {
+      //setting up the Profile photo path and Name
+      let fileType = req.file.mimetype.split("/")[1];
+      let newFilename = req.file.filename + "." + fileType;
+      fs.rename(
+        path.resolve(process.cwd(), `uploads/${req.file.filename}`),
+        path.resolve(process.cwd(), `uploads/${newFilename}`),
+        (data) => {
+          console.log("File Uploaded: ", newFilename);
+        }
+      );
+
+      user = await User.create({
+        userName: req.body.userName,
+        enrollNo: req.body.enrollNo,
+        email: req.body.email,
+        password: req.body.password,
+        userPhoto: newFilename,
+        field: "",
+        semester: 0,
+        className: "",
+      });
+    } else {
+      user = await User.create({
+        userName: req.body.userName,
+        enrollNo: req.body.enrollNo,
+        email: req.body.email,
+        password: req.body.password,
+        field: "",
+        semester: 0,
+        className: "",
+      });
+    }
+
+    const data = {
+      user: {
+        enrollNo: user.enrollNo,
+      },
+    };
+    const authtoken = jwt.sign(data, JWT_SECRET);
+    success = true;
+    res.json({ success, authtoken });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send("Internal Server Error");
   }
-);
+});
 
 // ROUTE 2 : For Faculties Sign IN
 router.post(

@@ -1,10 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import "./StudentSignin.css";
 import LockIcon from "@mui/icons-material/Lock";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
-import GirlProfile from "./GirlProfile.jpg";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 function StudentSignin() {
+  const [userData, setuserData] = useState({
+    userName: "",
+    enrollNo: 0,
+    email: "",
+    password: "",
+    conformPassword: "",
+  });
+
+  const [userPhoto, setUserphoto] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setuserData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const SubmitSigninData = (e) => {
+    e.preventDefault();
+    var signinData = new FormData();
+    signinData.append("userName", userData.userName);
+    signinData.append("enrollNo", userData.enrollNo);
+    signinData.append("email", userData.email);
+    signinData.append("userPhoto", userPhoto);
+    signinData.append("password", userData.password);
+
+    axios
+      .post("http://localhost:5000/createuser", signinData)
+      .then((response) => {
+        console.log("Data Sent : ", response);
+      })
+      .catch((err) => {
+        console.log("Sonething Went Wrong : ", err);
+      });
+  };
+
   return (
     <>
       <div className="SigninContainer">
@@ -15,15 +53,27 @@ function StudentSignin() {
           <form className="signinForm">
             <label>Enter your Fullname</label>
             <br />
-            <input className="signInInput"></input>
+            <input
+              className="signInInput"
+              name="userName"
+              onChange={handleChange}
+            />
             <br />
             <label>Enrolment No</label>
             <br />
-            <input className="signInInput"></input>
+            <input
+              className="signInInput"
+              name="enrollNo"
+              onChange={handleChange}
+            />
             <br />
             <label>Email ID</label>
             <br />
-            <input className="signInInput"></input>
+            <input
+              className="signInInput"
+              name="email"
+              onChange={handleChange}
+            />
             <br />
             <div className="PhotoSelecAndHolder">
               <label
@@ -37,23 +87,41 @@ function StudentSignin() {
                 </div>
               </label>
               <div>
-                <img
-                  src={GirlProfile}
-                  alt="profile"
-                  className="profilePicture"
-                />
+                {userPhoto ? (
+                  <img
+                    src={URL.createObjectURL(userPhoto)}
+                    alt="uploadedProduct"
+                    className="profilePicture"
+                  />
+                ) : null}
               </div>
             </div>
             <br />
-            <input className="signInInput" type="file" id="photoInput"></input>
+            <input
+              className="signInInput"
+              type="file"
+              id="photoInput"
+              name="userPhoto"
+              onChange={(e) => {
+                setUserphoto(e.target.files[0]);
+              }}
+            />
             <br />
             <label>Set Password</label>
             <br />
-            <input className="signInInput"></input>
+            <input
+              className="signInInput"
+              name="password"
+              onChange={handleChange}
+            />
             <br />
             <label>Confirm Password</label>
             <br />
-            <input className="signInInput"></input>
+            <input
+              className="signInInput"
+              name="conformPassword"
+              onChange={handleChange}
+            />
             <br />
             <div className="agreeContainer">
               <input type="checkbox" className="checkBox"></input>
@@ -62,7 +130,12 @@ function StudentSignin() {
               </span>
             </div>
             <br />
-            <button className="signinBtn">Sign In</button>
+            <button className="signinBtn" onClick={SubmitSigninData}>
+              Sign In
+            </button>
+            <h1 className="loginLink">
+              Don’t have an Account? <Link to="/signin">Sign In</Link> here
+            </h1>
           </form>
         </div>
         <div className="InstructionPart">
