@@ -1,0 +1,88 @@
+.login-container{
+    width: 100%;
+    height: 82.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.login-heading h1{
+    font-size: 25px;
+    text-align: center;
+    font-weight: 500;
+}   
+.login-contain{
+    border: 2px solid #F3F2F2;
+    margin: auto;
+}
+.login-details{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 25px;
+}
+.login-details input{
+    border: 2px solid #F3F2F2;
+    border-radius: 16px;
+    font-size: 15px;
+    padding: 10px;
+    width: 320px;
+}
+.forgot{
+    font-size: 14px;
+    margin-top: 6px;
+    color: #828282;
+    width: fit-content;
+    text-align: left;
+}
+.login-button{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.login-button button{
+    background-color: #282828;
+    color: white;
+    font-size: 16px;
+    width: 190px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+}
+.signup{
+    color: #828282;
+    font-size: 15px;
+    width: fit-content;
+}
+/* .main-container{
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+} */
+
+@media (max-width: 425px){
+    .login-details input {
+        font-size: 13px;
+        width: 240px;
+    }
+    .forgot{
+        font-size: 14px;
+    }
+    .login-button button {
+        font-size: 14px;
+        width: 170px;
+    }
+    .signup{
+        font-size: 14px;
+    }
+    .login-heading h1 {
+        font-size: 20px;
+    }
+    .login-details{
+        margin: 15px;
+    }
+}
