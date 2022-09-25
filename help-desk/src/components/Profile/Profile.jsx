@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Profile.css";
 
 import Grid from "@mui/material/Grid";
@@ -6,8 +6,26 @@ import { Avatar, Rating } from "@mui/material";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import axios from "axios";
+import { useEffect } from "react";
 
 export default function Profile() {
+
+  const [userdata, setUserdata] = useState([])
+
+  useEffect(()=>{
+    let uid = localStorage.getItem("id");
+    axios.post("http://localhost:5000/getdatabyid",
+    {
+      id: uid,
+    })
+    .then((response)=>{
+        console.log(response);
+        setUserdata(response.data);
+    }).catch((error)=>{
+      console.log("Sonething Went Wrong : ", error);
+    })
+  },[])
   return (
     <>
       <div className="wholeprofile">
@@ -21,11 +39,12 @@ export default function Profile() {
             <CameraAltIcon fontSize="large" />
           </div>
           <div className="profiledetails">
-            <h3>Anjali Pradipkumar Parmar</h3>
-            <h4>class-B sem-7th</h4>
-            <h5>201903103510141</h5>
-            <h5>Class Representive</h5>
+            <h3>{userdata.userName}</h3>
+            <h4>{userdata.className} sem-{userdata.semester}th</h4>
+            <h5>{userdata.enrollNo}</h5>
+            <h5>{userdata.role}</h5>
             <h5>User id - 200193</h5>
+            <h5>{userdata.field}</h5>
             <p>
               I have a great interest in Designing and i would like to continue
               with this skill through my carrier

@@ -46,6 +46,7 @@ export default function Login() {
       .then((response) => {
         console.log("Data Sent : ", response);
         localStorage.setItem("token",response.data.authtoken);
+        localStorage.setItem("id",response.data.data.user["id"]);
         Navigate("/profile")
       }).catch((err) => {
         console.log("Sonething Went Wrong : ", err);
