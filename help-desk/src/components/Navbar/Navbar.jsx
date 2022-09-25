@@ -84,14 +84,27 @@ export default function Navbar() {
         </div>
         <div className="login-menu">
           <div className="nav-login">
-            <button
-              type="submit"
-              onClick={() => {
-                Navigate("/signin");
-              }}
-            >
-              Login
-            </button>
+            {localStorage.getItem("id") ? (
+              <button
+                type="submit"
+                onClick={() => {
+                  localStorage.removeItem("id");
+                  localStorage.removeItem("token");
+                  Navigate("/");
+                }}
+              >
+                Logout
+              </button>
+            ) : (
+              <button
+                type="submit"
+                onClick={() => {
+                  Navigate("/signin");
+                }}
+              >
+                Login
+              </button>
+            )}
           </div>
           <div className="menu-btn" onClick={handlemenu} id="menu-btn">
             <i className="fas fa-bars" onClick={handlemenu}></i>

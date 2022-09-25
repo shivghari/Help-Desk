@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Profile.css";
-
 import Grid from "@mui/material/Grid";
 import { Avatar, Rating } from "@mui/material";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
@@ -10,29 +9,33 @@ import axios from "axios";
 import { useEffect } from "react";
 
 export default function Profile() {
+  const [userdata, setUserdata] = useState({});
 
-  const [userdata, setUserdata] = useState([])
-
-  useEffect(()=>{
+  useEffect(() => {
     let uid = localStorage.getItem("id");
-    axios.post("http://localhost:5000/getdatabyid",
-    {
-      id: uid,
-    })
-    .then((response)=>{
-        console.log(response);
+    axios
+      .post("http://localhost:5000/getdatabyid", {
+        id: uid,
+      })
+      .then((response) => {
+        console.log(response.data);
         setUserdata(response.data);
-    }).catch((error)=>{
-      console.log("Sonething Went Wrong : ", error);
-    })
-  },[])
+      })
+      .catch((error) => {
+        console.log("Sonething Went Wrong : ", error);
+      });
+  }, []);
   return (
     <>
       <div className="wholeprofile">
         <div className="studentinfo">
           <div className="profilesection">
             <img
-              src="./images/Profile Image.png"
+              src={
+                userdata.userPhoto
+                  ? `http://localhost:5000/static/${userdata?.userPhoto}`
+                  : `./images/Profile Image.png`
+              }
               alt="profileimg"
               className="profileimg"
             ></img>
@@ -40,7 +43,9 @@ export default function Profile() {
           </div>
           <div className="profiledetails">
             <h3>{userdata.userName}</h3>
-            <h4>{userdata.className} sem-{userdata.semester}th</h4>
+            <h4>
+              {userdata.className} sem-{userdata.semester}th
+            </h4>
             <h5>{userdata.enrollNo}</h5>
             <h5>{userdata.role}</h5>
             <h5>User id - 200193</h5>
