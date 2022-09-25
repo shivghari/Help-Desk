@@ -50,9 +50,9 @@ router.post("/login", async (req, res) => {
 router.post("/facultylogin", async (req, res) => {
   let success = false;
   //  If there are errors, return bad request and the errors
-  const { email, password } = req.body;
+  const { enrollNo, password } = req.body;
   try {
-    let user = await Faculties.findOne({ email });
+    let user = await Faculties.findOne({ enrollNo });
     if (!user) {
       success = false;
       return res.status(400).json({
