@@ -4,6 +4,7 @@ const User = require("../Models/User");
 const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 const Faculties = require("../Models/Faculties");
+const Verifytoken = require("../Middlewares/Verifytoken");
 
 const JWT_SECRET = "Darshanisagoodb$oy";
 
@@ -32,6 +33,7 @@ router.post("/login", async (req, res) => {
     }
     const data = {
       user: {
+        id: user._id,
         enrollNo: user.enrollNo,
         userName: user.userName,
       },
@@ -84,5 +86,16 @@ router.post("/facultylogin", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+//Route-3 get data of student
+
+router.post("/getdatabyid",async(req,res)=>{
+    try {
+      let user = await User.findById(req.body.id).select("-password")
+      res.status(200).json(user)
+    } catch (error) {
+      console.log("error in find userdata.",error);
+    }
+})
 
 module.exports = router;
