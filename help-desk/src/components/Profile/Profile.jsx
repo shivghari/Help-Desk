@@ -33,7 +33,7 @@ export default function Profile() {
       .catch((error) => {
         console.log("Sonething Went Wrong : ", error);
       });
-  }, []);
+  }, [openEditProfile]);
   return (
     <>
       <div className="wholeprofile">
@@ -59,11 +59,7 @@ export default function Profile() {
             <h4>{userdata?.role}</h4>
             <h4>{userdata?.field}</h4>
 
-            <p>
-              I have a great interest in Designing and i would like to continue
-              with this skill through my carrier. I have a great interest in
-              Designing.
-            </p>
+            <p>{userdata?.bio}</p>
           </div>
           <div className="editprofile">
             <button
