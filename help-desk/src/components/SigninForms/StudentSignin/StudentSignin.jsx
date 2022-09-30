@@ -5,6 +5,8 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import StoreInUsestate from "../../../util/StoreInUsestate";
+
 function StudentSignin() {
   const [userData, setuserData] = useState({
     userName: "",
@@ -15,14 +17,6 @@ function StudentSignin() {
   });
 
   const [userPhoto, setUserphoto] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setuserData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
 
   const SubmitSigninData = (e) => {
     e.preventDefault();
@@ -56,7 +50,10 @@ function StudentSignin() {
             <input
               className="signInInput"
               name="userName"
-              onChange={handleChange}
+              // onChange={handleChange}
+              onChange={(e) => {
+                StoreInUsestate.handleChange(e, setuserData);
+              }}
             />
             <br />
             <label>Enrolment No</label>
@@ -64,7 +61,10 @@ function StudentSignin() {
             <input
               className="signInInput"
               name="enrollNo"
-              onChange={handleChange}
+              // onChange={handleChange}
+              onChange={(e) => {
+                StoreInUsestate.handleChange(e, setuserData);
+              }}
             />
             <br />
             <label>Email ID</label>
@@ -72,7 +72,10 @@ function StudentSignin() {
             <input
               className="signInInput"
               name="email"
-              onChange={handleChange}
+              // onChange={handleChange}
+              onChange={(e) => {
+                StoreInUsestate.handleChange(e, setuserData);
+              }}
             />
             <br />
             <div className="PhotoSelecAndHolder">
@@ -112,7 +115,10 @@ function StudentSignin() {
             <input
               className="signInInput"
               name="password"
-              onChange={handleChange}
+              // onChange={handleChange}
+              onChange={(e) => {
+                StoreInUsestate.handleChange(e, setuserData);
+              }}
             />
             <br />
             <label>Confirm Password</label>
@@ -120,7 +126,10 @@ function StudentSignin() {
             <input
               className="signInInput"
               name="conformPassword"
-              onChange={handleChange}
+              // onChange={handleChange}
+              onChange={(e) => {
+                StoreInUsestate.handleChange(e, setuserData);
+              }}
             />
             <br />
             <div className="agreeContainer">

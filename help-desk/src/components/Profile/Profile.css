@@ -1,12 +1,12 @@
 .wholeprofile {
-  width: fit-content;
+  width: 60%;
   margin: auto;
   height: fit-content;
 }
 .studentinfo {
   display: flex;
   margin: 25px auto;
-  width: fit-content;
+  width: 98%;
   border: 1px solid #b5b5b5;
   box-shadow: 2px 4px #c0bdbd;
   padding: 12px 12px 30px 12px;
@@ -44,6 +44,7 @@
 .profiledetails p {
   color: #b5b5b5;
   font-size: 14px;
+  margin-top: 10px;
 }
 .editprofile {
   margin-left: 45px;
@@ -54,6 +55,7 @@
   color: white;
   background-color: black;
   font-size: 14px;
+  width: 110px;
 }
 .services {
   display: flex;
@@ -67,6 +69,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
 .featureImage {
   width: 210px;

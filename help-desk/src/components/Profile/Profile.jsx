@@ -7,10 +7,20 @@ import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import axios from "axios";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+import EditProfile from "./EditProfile";
 
 export default function Profile() {
   const [userdata, setUserdata] = useState({});
+  const [openEditProfile, setopenEditProfile] = useState(false);
 
+  //function is to make changes in OpenEditprofile State from Child EditProfile Component
+  const closeEditProfile = (action) => {
+    setopenEditProfile(action);
+  };
+
+  const Navigate = useNavigate();
   useEffect(() => {
     let uid = localStorage.getItem("id");
     axios
@@ -18,7 +28,6 @@ export default function Profile() {
         id: uid,
       })
       .then((response) => {
-        console.log(response.data);
         setUserdata(response.data);
       })
       .catch((error) => {
@@ -42,28 +51,46 @@ export default function Profile() {
             <CameraAltIcon fontSize="large" />
           </div>
           <div className="profiledetails">
-            <h3>{userdata.userName}</h3>
+            <h2>{userdata?.userName}</h2>
             <h4>
-              {userdata.className} sem-{userdata.semester}th
+              {userdata?.className} Semester-{userdata?.semester}th
             </h4>
-            <h5>{userdata.enrollNo}</h5>
-            <h5>{userdata.role}</h5>
-            <h5>User id - 200193</h5>
-            <h5>{userdata.field}</h5>
+            <h3>{userdata?.enrollNo}</h3>
+            <h4>{userdata?.role}</h4>
+            <h4>{userdata?.field}</h4>
+
             <p>
               I have a great interest in Designing and i would like to continue
-              with this skill through my carrier
+              with this skill through my carrier. I have a great interest in
+              Designing.
             </p>
           </div>
           <div className="editprofile">
-            <button className="editp">Edit Profile</button>
+            <button
+              className="editp"
+              onClick={() => {
+                setopenEditProfile(true);
+              }}
+            >
+              Edit Profile
+            </button>
           </div>
         </div>
+        {openEditProfile === true ? (
+          <div className="EditPRofileCpmponent">
+            <EditProfile closeEditProfile={closeEditProfile} />
+          </div>
+        ) : null}
         <div className="services">
           <h3>Services...</h3>
           <Grid container spacing={2}>
             <Grid item md={4} sm={6} xs={12}>
-              <div className="complaintsection">
+              <div
+                className="complaintsection"
+                onClick={() => {
+                  Navigate("/complaint");
+                }}
+              >
                 <img
                   src="./images/make Complaint.png"
                   alt="complaintimg"
