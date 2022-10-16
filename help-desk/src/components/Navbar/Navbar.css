@@ -68,6 +68,9 @@ a {
 .show {
   display: block;
 }
+.logoutAndProfile {
+  display: flex;
+}
 /* Media query for phone */
 @media (max-width: 613px) {
   .nav-login button {

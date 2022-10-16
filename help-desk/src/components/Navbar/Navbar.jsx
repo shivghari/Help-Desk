@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
+import PersonIcon from "@mui/icons-material/Person";
 
 // import {
 //    Link
@@ -85,16 +86,29 @@ export default function Navbar() {
         <div className="login-menu">
           <div className="nav-login">
             {localStorage.getItem("id") ? (
-              <button
-                type="submit"
-                onClick={() => {
-                  localStorage.removeItem("id");
-                  localStorage.removeItem("token");
-                  Navigate("/");
-                }}
-              >
-                Logout
-              </button>
+              <div className="logoutAndProfile">
+                <PersonIcon
+                  sx={{
+                    marginTop: "5px",
+                    marginRight: "15px",
+                    cursor: "pointer",
+                  }}
+                  fontSize="large"
+                  onClick={() => {
+                    Navigate("/profile");
+                  }}
+                />
+                <button
+                  type="submit"
+                  onClick={() => {
+                    localStorage.removeItem("id");
+                    localStorage.removeItem("token");
+                    Navigate("/");
+                  }}
+                >
+                  Logout
+                </button>
+              </div>
             ) : (
               <button
                 type="submit"

@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import "./Yourcomplaint.css";
 import Rating from "@mui/material/Rating";
 
@@ -6,7 +6,6 @@ import Avatar from "@mui/material/Avatar";
 import data from "./com";
 
 function Yourcomplaint() {
-  const [value, setValue] = useState(null);
   return (
     <>
       <div className="yourcomplaint">
@@ -29,13 +28,7 @@ function Yourcomplaint() {
                     <h5>{val.designation}</h5>
                     <h4 className="complaint_title">{val.title}</h4>
                     <p>{val.details}</p>
-                    <Rating
-                      name="size-medium"
-                      value={value}
-                      onChange={(event, newValue) => {
-                        setValue(newValue);
-                      }}
-                    />
+                    <Rating name="size-medium" value={3} />
                     <div className="status_edit">
                       <div className="status">
                         <h4>Status:</h4>

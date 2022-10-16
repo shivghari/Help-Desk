@@ -106,6 +106,47 @@
   align-items: flex-start;
   width: 50%;
 }
+
+/* image css */
+
+.PhotoSelecAndHolder {
+  width: 250px;
+}
+.complaintPhotoInput {
+  width: 90%;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #d1d1d1;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-left: 8px;
+}
+
+.complaintPhotoInput:focus {
+  outline: none;
+}
+
+.fileLabel {
+  height: 120px;
+  width: 300px;
+}
+
+.dummyDiv {
+  width: 50%;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #d1d1d1;
+  font-size: 15px;
+  margin-top: 5px;
+  padding-left: 8px;
+}
+
+#complaintPhoto {
+  margin-top: 7px;
+  display: none;
+}
+/* end */
 .rules_method {
   display: flex;
   flex-direction: column;

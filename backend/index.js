@@ -8,6 +8,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/static", express.static(path.resolve("uploads")));
+app.use("/staticComplaint", express.static(path.resolve("complaintPhoto")));
 app.use(cors());
 app.use("/", require("./Routers/Signin"));
 app.use("/", require("./Routers/Login"));
