@@ -59,6 +59,21 @@ router.post("/addcomplaint", upload.single("image"), async (req, res) => {
   }
 });
 
+router.post("/getComplaint", async (req, res) => {
+  try {
+    await Complaint.find({ userID: req.body.userID })
+      .then((data) => {
+        console.log(data);
+        res.status(200).json(data);
+      })
+      .catch((e) => {
+        res.status(300).json("Something Went Wring in Fetching Complaint");
+      });
+  } catch (e) {
+    res.status(300).json("Something Went Wring in Fetching Complaint");
+  }
+});
+
 router.put("/updatecomplaint", Verifytoken, async (req, res) => {
   try {
     const id = req.body.id;
