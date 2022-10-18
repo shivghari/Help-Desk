@@ -74,11 +74,13 @@ router.post("/getComplaint", async (req, res) => {
   }
 });
 
-router.put("/updatecomplaint", Verifytoken, async (req, res) => {
+router.put("/updatecomplaint", upload.single(""), async (req, res) => {
   try {
     const id = req.body.id;
-    const updatecomplaint = await Complaint.findByIdAndUpdate(id, req.body, {
-      new: true,
+    const updatecomplaint = await Complaint.findByIdAndUpdate(id, {
+      title: req.body.title,
+      desc: req.body.desc,
+      severity: req.body.severity,
     });
     res.status(200).send(updatecomplaint);
   } catch (e) {

@@ -1,15 +1,19 @@
-import { React } from "react";
+import { React, useState } from "react";
 import "./Yourcomplaint.css";
 import Rating from "@mui/material/Rating";
 import Avatar from "@mui/material/Avatar";
+import EditComplaint from "./EditComplaint";
 import GetCurrentUserData from "../../../Hooks/GetCurrentUserData";
 import DeleteComplaintById from "../../../util/DeleteComplaintById";
 import GetComplaintsByUserID from "../../../Hooks/GetComplaintsByUserID";
 
 function Yourcomplaint() {
+  // const [editComplaint, seteditComplaint] = useState(false);
+  const [selectedComplaint, setselectedComplaint] = useState({});
   const userData = GetCurrentUserData("http://localhost:5000/getdatabyid");
   const complaints = GetComplaintsByUserID(
-    "http://localhost:5000/getComplaint"
+    "http://localhost:5000/getComplaint",
+    selectedComplaint
   );
   return (
     <>
@@ -45,7 +49,13 @@ function Yourcomplaint() {
                           </span>
                         </div>
                         <div className="edit">
-                          <button className="editcomplaint">
+                          <button
+                            className="editcomplaint"
+                            onClick={() => {
+                              setselectedComplaint({ id: val._id });
+                              console.log("hola", selectedComplaint.keys);
+                            }}
+                          >
                             Edit Complaint
                           </button>
                           <button
@@ -63,6 +73,12 @@ function Yourcomplaint() {
                       </div>
                     </div>
                   </div>
+                  {selectedComplaint["id"] === val._id ? (
+                    <EditComplaint
+                      complaintID={val._id}
+                      setselectedComplaint={setselectedComplaint}
+                    />
+                  ) : null}
                 </div>
               </>
             );

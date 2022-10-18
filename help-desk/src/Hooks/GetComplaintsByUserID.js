@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const GetComplaintsByUserID = (url) => {
+const GetComplaintsByUserID = (url, update = null) => {
   const [complaints, setcomplaints] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const GetComplaintsByUserID = (url) => {
       .catch((err) => {
         console.log(err, "err");
       });
-  }, [url]);
+  }, [url, update]);
 
   return complaints;
 };
