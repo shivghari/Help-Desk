@@ -32,6 +32,7 @@ const ComplaintSchema = new Schema({
 
   track: {
     type: Number,
+    default: 1,
   },
 
   status: {

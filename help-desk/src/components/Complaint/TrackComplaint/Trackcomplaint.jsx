@@ -6,13 +6,17 @@ import "./Trackcomplaint.css";
 import Rating from "@mui/material/Rating";
 import Avatar from "@mui/material/Avatar";
 
-import data from "../TrackComplaint/com";
 import { StepContent, Typography } from "@mui/material";
 import { useEffect } from "react";
 
-function Trackcomplaint() {
-  const [value, setValue] = useState(null);
+import GetComplaintsByUserID from "../../../Hooks/GetComplaintsByUserID";
+import GetCurrentUserData from "../../../Hooks/GetCurrentUserData";
 
+function Trackcomplaint() {
+  const userData = GetCurrentUserData("http://localhost:5000/getdatabyid");
+  const complaints = GetComplaintsByUserID(
+    "http://localhost:5000/getComplaint"
+  );
   const [screenWidth, setscreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -30,69 +34,72 @@ function Trackcomplaint() {
   return (
     <>
       <div className="trackcomplaint">
-        {data.map((val) => {
-          return (
-            <>
-              <div className="track_allcomplaint">
-                <div className="trackcomplaint_info">
-                  <div className="track_acontainer">
-                    <Avatar sx={{ width: 56, height: 56, bgcolor: "#FF8E4F" }}>
-                      {`${val.name[0].toUpperCase()}${val?.name
-                        ?.split(" ")[1][0]
-                        .toUpperCase()}`}
-                    </Avatar>
-                  </div>
-                  <div className="trackcomplaint_infodetails">
-                    <div className="trackcomplaint_infoname">
-                      <h3>{val.name}</h3>
-                    </div>
-                    <h5>{val.designation}</h5>
-                    <h4 className="trackcomplaint_title">{val.title}</h4>
-                    <p>{val.details}</p>
-                    <Rating
-                      name="size-medium"
-                      value={value}
-                      onChange={(event, newValue) => {
-                        setValue(newValue);
-                      }}
-                    />
-                    {screenWidth > 425 ? (
-                      <Stepper
-                        activeStep={1}
-                        alternativeLabel
-                        className="stepper"
+        {complaints &&
+          complaints.map((val) => {
+            return (
+              <>
+                <div className="track_allcomplaint">
+                  <div className="trackcomplaint_info">
+                    <div className="track_acontainer">
+                      <Avatar
+                        sx={{ width: 56, height: 56, bgcolor: "#FF8E4F" }}
                       >
-                        {steps.map((label) => (
-                          <Step key={label}>
-                            <StepLabel>{label}</StepLabel>
-                          </Step>
-                        ))}
-                      </Stepper>
-                    ) : (
-                      <Stepper activeStep={3} orientation="vertical">
-                        {steps.map((step, index) => (
-                          <Step key={step.label}>
-                            <StepLabel>{step}</StepLabel>
-                            <StepContent>
-                              <Typography>{step.description}</Typography>
-                            </StepContent>
-                          </Step>
-                        ))}
-                      </Stepper>
-                    )}
-                    <div className="track_status">
-                      <h4>Status:</h4>
-                      <span className="trackstatus_result">{val.status}</span>
+                        {/* {`${userData.userName[0].toUpperCase()}${userData?.userName
+                          ?.split(" ")[1][0]
+                          .toUpperCase()}`} */}
+                      </Avatar>
+                    </div>
+                    <div className="trackcomplaint_infodetails">
+                      <div className="trackcomplaint_infoname">
+                        <h3>{userData?.userName}</h3>
+                      </div>
+                      <h5>{userData?.role}</h5>
+                      <h4 className="trackcomplaint_title">{val?.title}</h4>
+                      <p>{val?.desc}</p>
+                      <Rating
+                        name="size-medium"
+                        value={val?.severity}
+                        readOnly
+                      />
+                      {screenWidth > 425 ? (
+                        <Stepper
+                          activeStep={val?.track}
+                          alternativeLabel
+                          className="stepper"
+                        >
+                          {steps.map((label) => (
+                            <Step key={label}>
+                              <StepLabel>{label}</StepLabel>
+                            </Step>
+                          ))}
+                        </Stepper>
+                      ) : (
+                        <Stepper activeStep={val?.track} orientation="vertical">
+                          {steps.map((step, index) => (
+                            <Step key={step.label}>
+                              <StepLabel>{step}</StepLabel>
+                              <StepContent>
+                                <Typography>{step.description}</Typography>
+                              </StepContent>
+                            </Step>
+                          ))}
+                        </Stepper>
+                      )}
+                      <div className="track_status">
+                        <h4>Status:</h4>
+                        <span className="trackstatus_result">
+                          {val?.status ? val?.status : "Pending"}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              {/* Checking The Stepper Bertical */}
+                {/* Checking The Stepper Bertical */}
 
-              {/* End Cheking */}
-            </>
-          );
-        })}
+                {/* End Cheking */}
+              </>
+            );
+          })}
       </div>
     </>
   );
