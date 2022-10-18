@@ -6,6 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const Complaint = require("../Models/Complaint");
 const Verifytoken = require("../Middlewares/Verifytoken");
+const User = require("../Models/User");
 
 router.post("/addcomplaint", upload.single("image"), async (req, res) => {
   console.log(req.body);
@@ -61,13 +62,12 @@ router.post("/addcomplaint", upload.single("image"), async (req, res) => {
 
 router.post("/getComplaint", async (req, res) => {
   try {
-    await Complaint.find({ userID: req.body.userID })
+    Complaint.find({ userID: req.body.userID })
       .then((data) => {
-        console.log(data);
         res.status(200).json(data);
       })
       .catch((e) => {
-        res.status(300).json("Something Went Wring in Fetching Complaint");
+        res.status(300).json("Something Went Wring in Fetching Complaint 1");
       });
   } catch (e) {
     res.status(300).json("Something Went Wring in Fetching Complaint");
@@ -86,7 +86,7 @@ router.put("/updatecomplaint", Verifytoken, async (req, res) => {
   }
 });
 
-router.delete("/deletecomplaint", Verifytoken, async (req, res) => {
+router.post("/deletecomplaint", async (req, res) => {
   try {
     const id = req.body.id;
     const deletecomplaint = await Complaint.findByIdAndDelete(id);
