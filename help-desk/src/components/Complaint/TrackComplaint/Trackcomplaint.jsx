@@ -10,10 +10,8 @@ import { StepContent, Typography } from "@mui/material";
 import { useEffect } from "react";
 
 import GetComplaintsByUserID from "../../../Hooks/GetComplaintsByUserID";
-import GetCurrentUserData from "../../../Hooks/GetCurrentUserData";
 
 function Trackcomplaint() {
-  const userData = GetCurrentUserData("http://localhost:5000/getdatabyid");
   const complaints = GetComplaintsByUserID(
     "http://localhost:5000/getComplaint"
   );
@@ -38,7 +36,7 @@ function Trackcomplaint() {
           complaints.map((val) => {
             return (
               <>
-                <div className="track_allcomplaint">
+                <div className="track_allcomplaint" key={val._id}>
                   <div className="trackcomplaint_info">
                     <div className="track_acontainer">
                       <Avatar
@@ -51,9 +49,9 @@ function Trackcomplaint() {
                     </div>
                     <div className="trackcomplaint_infodetails">
                       <div className="trackcomplaint_infoname">
-                        <h3>{userData?.userName}</h3>
+                        <h3>{val?.userID["userName"]}</h3>
                       </div>
-                      <h5>{userData?.role}</h5>
+                      <h5>{val?.userID["role"]}</h5>
                       <h4 className="trackcomplaint_title">{val?.title}</h4>
                       <p>{val?.desc}</p>
                       <Rating

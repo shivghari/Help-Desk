@@ -3,14 +3,14 @@ import "./Yourcomplaint.css";
 import Rating from "@mui/material/Rating";
 import Avatar from "@mui/material/Avatar";
 import EditComplaint from "./EditComplaint";
-import GetCurrentUserData from "../../../Hooks/GetCurrentUserData";
+
 import DeleteComplaintById from "../../../util/DeleteComplaintById";
 import GetComplaintsByUserID from "../../../Hooks/GetComplaintsByUserID";
 
 function Yourcomplaint() {
   // const [editComplaint, seteditComplaint] = useState(false);
   const [selectedComplaint, setselectedComplaint] = useState({});
-  const userData = GetCurrentUserData("http://localhost:5000/getdatabyid");
+
   const complaints = GetComplaintsByUserID(
     "http://localhost:5000/getComplaint",
     selectedComplaint
@@ -31,9 +31,9 @@ function Yourcomplaint() {
                     </div>
                     <div className="complaint_infodetails">
                       <div className="complaint_infoname">
-                        <h3>{userData.userName}</h3>
+                        <h3>{val.userID["userName"]}</h3>
                       </div>
-                      <h5>{userData.role}</h5>
+                      <h5>{val.userID["role"]}</h5>
                       <h4 className="complaint_title">{val.title}</h4>
                       <p>{val.desc}</p>
                       <Rating

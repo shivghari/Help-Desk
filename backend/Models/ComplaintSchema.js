@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const ComplaintSchema = new Schema({
   userID: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: "UserSchema",
   },
 
   title: {
@@ -40,5 +40,6 @@ const ComplaintSchema = new Schema({
   },
 });
 
-const Complaint = mongoose.model("ComplaintSchema", ComplaintSchema);
-module.exports = Complaint;
+module.exports = mongoose.model("ComplaintSchema", ComplaintSchema);
+// const Complaint = mongoose.model("ComplaintSchema", ComplaintSchema);
+// module.exports = Complaint;

@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../Models/User");
+const UserSchema = require("../Models/UserSchema");
 const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
-const Faculties = require("../Models/Faculties");
+const FacultiesSchema = require("../Models/FacultiesSchema");
 const Verifytoken = require("../Middlewares/Verifytoken");
 
 const JWT_SECRET = "Darshanisagoodb$oy";
@@ -14,7 +14,7 @@ router.post("/login", async (req, res) => {
   //  If there are errors, return bad request and the errors
   const { enrollNo, password } = req.body;
   try {
-    let user = await User.findOne({ enrollNo });
+    let user = await UserSchema.findOne({ enrollNo });
     if (!user) {
       success = false;
       return res.status(400).json({
@@ -54,7 +54,7 @@ router.post("/facultylogin", async (req, res) => {
   //  If there are errors, return bad request and the errors
   const { enrollNo, password } = req.body;
   try {
-    let user = await Faculties.findOne({ enrollNo });
+    let user = await FacultiesSchema.findOne({ enrollNo });
     if (!user) {
       success = false;
       return res.status(400).json({
@@ -89,13 +89,13 @@ router.post("/facultylogin", async (req, res) => {
 
 //Route-3 get data of student
 
-router.post("/getdatabyid",async(req,res)=>{
-    try {
-      let user = await User.findById(req.body.id).select("-password")
-      res.status(200).json(user)
-    } catch (error) {
-      console.log("error in find userdata.",error);
-    }
-})
+router.post("/getdatabyid", async (req, res) => {
+  try {
+    let user = await UserSchema.findById(req.body.id).select("-password");
+    res.status(200).json(user);
+  } catch (error) {
+    console.log("error in find userdata.", error);
+  }
+});
 
 module.exports = router;

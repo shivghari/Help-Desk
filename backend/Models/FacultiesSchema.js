@@ -2,14 +2,9 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const UserSchema = new Schema({
+const FacultiesSchema = new Schema({
   userName: {
     type: String,
-    required: true,
-  },
-
-  enrollNo: {
-    type: Number,
     required: true,
   },
 
@@ -29,24 +24,24 @@ const UserSchema = new Schema({
 
   role: {
     type: String,
-    default: "student",
+    default: "Faculty",
   },
 
   field: {
     type: String,
   },
 
-  semester: {
+  education: {
+    type: String,
+  },
+
+  mobileNo: {
     type: Number,
   },
 
-  className: {
-    type: String,
-  },
-  bio: {
-    type: String,
+  studentList: {
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: "UserSchema" }],
   },
 });
 
-const User = mongoose.model("UserSchema", UserSchema);
-module.exports = User;
+module.exports = mongoose.model("FacultiesSchema", FacultiesSchema);

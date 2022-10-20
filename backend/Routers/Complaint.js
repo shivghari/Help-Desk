@@ -4,9 +4,8 @@ const multer = require("multer");
 const upload = multer({ dest: "complaintPhoto" });
 const fs = require("fs");
 const path = require("path");
-const Complaint = require("../Models/Complaint");
+const ComplaintSchema = require("../Models/ComplaintSchema");
 const Verifytoken = require("../Middlewares/Verifytoken");
-const User = require("../Models/User");
 
 router.post("/addcomplaint", upload.single("image"), async (req, res) => {
   console.log(req.body);
@@ -21,7 +20,7 @@ router.post("/addcomplaint", upload.single("image"), async (req, res) => {
       }
     );
 
-    Complaint.create({
+    ComplaintSchema.create({
       userID: req.body.userID,
       title: req.body.title,
       desc: req.body.desc,
@@ -44,7 +43,7 @@ router.post("/addcomplaint", upload.single("image"), async (req, res) => {
     //     console.log("error in add product.", error);
     //   }
   } else {
-    Complaint.create({
+    ComplaintSchema.create({
       userID: req.body.userID,
       title: req.body.title,
       desc: req.body.desc,
@@ -62,11 +61,13 @@ router.post("/addcomplaint", upload.single("image"), async (req, res) => {
 
 router.post("/getComplaint", async (req, res) => {
   try {
-    Complaint.find({ userID: req.body.userID })
+    ComplaintSchema.find({ userID: req.body.userID })
+      .populate("userID")
       .then((data) => {
         res.status(200).json(data);
       })
       .catch((e) => {
+        console.log(e);
         res.status(300).json("Something Went Wring in Fetching Complaint 1");
       });
   } catch (e) {
@@ -77,7 +78,7 @@ router.post("/getComplaint", async (req, res) => {
 router.put("/updatecomplaint", upload.single(""), async (req, res) => {
   try {
     const id = req.body.id;
-    const updatecomplaint = await Complaint.findByIdAndUpdate(id, {
+    const updatecomplaint = await ComplaintSchema.findByIdAndUpdate(id, {
       title: req.body.title,
       desc: req.body.desc,
       severity: req.body.severity,
@@ -91,7 +92,7 @@ router.put("/updatecomplaint", upload.single(""), async (req, res) => {
 router.post("/deletecomplaint", async (req, res) => {
   try {
     const id = req.body.id;
-    const deletecomplaint = await Complaint.findByIdAndDelete(id);
+    const deletecomplaint = await ComplaintSchema.findByIdAndDelete(id);
     res.status(200).send(deletecomplaint);
   } catch (e) {
     res.status(400).send(e);
@@ -100,7 +101,7 @@ router.post("/deletecomplaint", async (req, res) => {
 
 router.get("/publiccomplaint", Verifytoken, async (req, res) => {
   try {
-    const allcomplaints = await Complaint.find();
+    const allcomplaints = await ComplaintSchema.find();
     res.status(200).json(allcomplaints);
   } catch (error) {
     console.log("error in add all products", error);

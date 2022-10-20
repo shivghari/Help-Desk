@@ -1,6 +1,6 @@
 const express = require("express");
-const User = require("../Models/User");
-const Faculties = require("../Models/Faculties");
+const UserSchema = require("../Models/UserSchema");
+const FacultiesSchema = require("../Models/FacultiesSchema");
 const router = express.Router();
 const nodemailer = require("nodemailer");
 const bcrypt = require("bcryptjs");
@@ -40,7 +40,7 @@ router.post("/createuser", upload.single("userPhoto"), async (req, res) => {
   let success = false;
   try {
     //check whether the user with this email exits already
-    let user = await User.findOne({ enrollNo: req.body.enrollNo });
+    let user = await UserSchema.findOne({ enrollNo: req.body.enrollNo });
     if (user) {
       return res.status(400).json({
         success,
@@ -61,7 +61,7 @@ router.post("/createuser", upload.single("userPhoto"), async (req, res) => {
         }
       );
 
-      user = await User.create({
+      user = await UserSchema.create({
         userName: req.body.userName,
         enrollNo: req.body.enrollNo,
         email: req.body.email,
@@ -72,7 +72,7 @@ router.post("/createuser", upload.single("userPhoto"), async (req, res) => {
         className: "",
       });
     } else {
-      user = await User.create({
+      user = await UserSchema.create({
         userName: req.body.userName,
         enrollNo: req.body.enrollNo,
         email: req.body.email,
@@ -105,7 +105,7 @@ router.post(
     let success = false;
     try {
       //check whether the user with this email exits already
-      let user = await Faculties.findOne({ email: req.body.email });
+      let user = await FacultiesSchema.findOne({ email: req.body.email });
       if (user) {
         return res.status(400).json({
           success,
@@ -114,7 +114,7 @@ router.post(
       }
 
       // create a new user
-      user = await Faculties.create({
+      user = await FacultiesSchema.create({
         userName: "Darshan Patel",
         email: "pateldarshan2910@gmail.com",
         password: "darshan@123",
