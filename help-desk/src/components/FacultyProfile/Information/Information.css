@@ -1,0 +1,235 @@
+.informationcontainer{
+    width: 100%;
+    height: 100%;
+}
+.fallinformation {
+  width: 70%;
+  height: 100%;
+  margin: 25px auto;
+}
+.finfoheading {
+  margin-bottom: 25px;
+  font-size: 25px;
+}
+.finfo {
+  display: flex;
+  padding: 12px 12px 30px 12px;
+  border: 1px solid #EEEEEE;
+}
+.fsblackimg {
+  border-radius: 50%;
+  padding: 15px 20px;
+  background-color: lightblue;
+}
+.finfodetails {
+  margin-left: 16px;
+}
+.finfoname {
+  display: flex;
+}
+.finfoname h3 {
+  font-size: 18px;
+}
+.finfodetails h5 {
+  color: #b5b5b5;
+  font-weight: 500;
+  font-style: 14px;
+}
+.finfodetails p {
+  font-size: 14px;
+}
+
+.fratings{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* @media (max-width: 1440px){
+  .fallinformation{
+      width: 66%;
+  }
+} */
+
+@media (max-width: 1342px){
+  .fallinformation{
+      width: 73%;
+  }
+}
+
+@media (max-width: 1197px){
+  .fallinformation{
+      width: 80%;
+  }
+}
+
+@media (max-width: 1120px){
+  .fallinformation{
+      width: 84%;
+  }
+}
+
+@media (max-width: 1024px){
+  .fallinformation{
+      width: 93%;
+  }
+}
+
+@media (max-width: 900px){
+  .fallinformation{
+      width: 87%;
+  }
+}
+
+@media(max-width: 768px){
+  .fallinformation{
+      width: 85%;
+  }
+}
+
+@media (max-width: 708px) {
+  .fallinformation{
+      width: 96%;
+  }
+  .finfo {
+    /* display: flex; */
+    padding: 10px 10px 20px 10px;
+    /* border: 1px solid grey; */
+  }
+  .finfoname h3 {
+    font-size: 15px;
+  }
+  .finfodetails h5 {
+    font-size: 10px;
+  }
+  .finfodetails p {
+    font-size: 10px;
+  }
+  .flike span {
+    font-size: 20px;
+  }
+  .fstarimg {
+    width: 14px;
+  }
+  .flikeimg {
+    width: 20px;
+  }
+  .fdislikeimg {
+    width: 20px;
+  }
+}
+@media (max-width: 658px) {
+  .finfoname h3 {
+    font-size: 13px;
+  }
+  .flike span {
+    font-size: 15px;
+  }
+  .fstarimg {
+    width: 14px;
+  }
+  .flikeimg {
+    width: 18px;
+    height: 18px;
+  }
+  .fdislikeimg {
+    width: 18px;
+    height: 18px;
+  }
+}
+@media (max-width: 521px) {
+  .finfoname h3 {
+    font-size: 13px;
+  }
+  .finfodetails h5 {
+    font-size: 8px;
+  }
+  .finfodetails p {
+    font-size: 8px;
+  }
+  .flike span {
+    font-size: 15px;
+  }
+  .fstarimg {
+    width: 13px;
+  }
+  .flikeimg {
+    width: 16px;
+    height: 16px;
+  }
+  .fdislikeimg {
+    width: 16px;
+    height: 16px;
+  }
+}
+@media (max-width: 425px) {
+  .finfo {
+    margin: 5px;
+  }
+  .fsblackimg {
+    padding: 6px 10px;
+  }
+  .finfoheading {
+    font-size: 20px;
+  }
+  .finfoname h3 {
+    font-size: 10px;
+  }
+  .finfodetails h5 {
+    font-size: 8px;
+  }
+  .finfodetails p {
+    font-size: 7px;
+  }
+  .flike span {
+    font-size: 8px;
+  }
+  .finfodetails {
+    margin-left: 10px;
+  }
+  .fstarimg {
+    width: 9px;
+  }
+  .flikeimg {
+    width: 11px;
+    height: 11px;
+  }
+  .fdislikeimg {
+    width: 11px;
+    height: 11px;
+  }
+}
+@media (max-width: 375px) {
+  .finfo {
+    margin: 2px;
+  }
+  .finfoheading {
+    font-size: 15px;
+  }
+  .finfoname h3 {
+    font-size: 8px;
+  }
+  .finfodetails h5 {
+    font-size: 7px;
+  }
+  .finfodetails p {
+    font-size: 7px;
+  }
+  .flike span {
+    font-size: 7px;
+  }
+  .finfodetails {
+    margin-left: 8px;
+  }
+  .fstarimg {
+    width: 8px;
+  }
+  .flikeimg {
+    width: 10px;
+    height: 10px;
+  }
+  .fdislikeimg {
+    width: 10px;
+    height: 10px;
+  }
+}

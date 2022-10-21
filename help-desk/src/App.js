@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import Login from "./components/LoginForm/Login";
 import Complaint from "../src/components/Complaint";
+import Facultyprofile from "../src/components/FacultyProfile";
 
 //routing imports
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -33,6 +34,7 @@ function App() {
               </>
             }
           ></Route>
+          <Route exact path="/facultyprofile" element={<Facultyprofile />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
