@@ -1,85 +1,85 @@
-.postcontainer{
-    width: 100%;
-    height: 100%;
+.postcontainer {
+  width: 100%;
+  /* height: 100%; */
 }
-.wholepostinfo{
-    width: 70%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 25px auto;
+.wholepostinfo {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 25px auto;
 }
-.postheading h3{
-    font-size: 25px;
-    margin-bottom: 10px;
+.postheading h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
 }
-.postform{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    border: 1px solid #EBEBEB;
-    justify-content: space-between; 
-    padding: 25px;
+.postform {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border: 1px solid #ebebeb;
+  justify-content: space-between;
+  padding: 25px;
 }
-.postdetails{
-    width: 60%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+.postdetails {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.postdetails label{
-    font-size: 15px;
-    font-weight: 600;
+.postdetails label {
+  font-size: 15px;
+  font-weight: 600;
 }
-.post_input{
-    height: 35px;
-    border-radius: 10px;
-    border: 1px solid #d1d1d1;
-    font-size: 15px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    padding-left: 8px;
+.post_input {
+  height: 35px;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-left: 8px;
 }
-.postbutton{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 15px;
+.postbutton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15px;
 }
-.pbutton{
-    padding: 8px 40px;
-    font-size: 16px;
-    font-weight: 500;
-    background-color: #282828;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-right: 25px;
+.pbutton {
+  padding: 8px 40px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #282828;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 25px;
 }
-.postimage{
-    width: 40%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.postimage {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-.postimage label{
-    font-size: 15px;
-    font-weight: 600;
+.postimage label {
+  font-size: 15px;
+  font-weight: 600;
 }
-.pimageborder{
-    border: 1px solid #EBEBEB;
-    border-radius: 5px;
-    width: 160px;
-    height: 160px;
+.pimageborder {
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  width: 160px;
+  height: 160px;
 }
-.postcameraimg{
-    width: 40px;
+.postcameraimg {
+  width: 40px;
 }
 
 /* @media (max-width: 1440px) {
@@ -89,68 +89,68 @@
 } */
 
 @media (max-width: 1342px) {
-    .wholepostinfo{
-        width: 73%;
-    }
+  .wholepostinfo {
+    width: 73%;
+  }
 }
 
 @media (max-width: 1197px) {
-    .wholepostinfo{
-        width: 80%;
-    }
+  .wholepostinfo {
+    width: 80%;
+  }
 }
 
 @media (max-width: 1120px) {
-    .wholepostinfo{
-        width: 84%;
-    }
+  .wholepostinfo {
+    width: 84%;
+  }
 }
 
 @media (max-width: 1024px) {
-    .wholepostinfo{
-        width: 93%;
-    }
+  .wholepostinfo {
+    width: 93%;
+  }
 }
 
 @media (max-width: 900px) {
-    .wholepostinfo{
-        width: 87%;
-    }
+  .wholepostinfo {
+    width: 87%;
+  }
 }
 
 @media (max-width: 768px) {
-    .wholepostinfo{
-        width: 85%;
-    }
+  .wholepostinfo {
+    width: 85%;
+  }
 }
 
 @media (max-width: 708px) {
-    .wholepostinfo{
-        width: 96%;
-    }
+  .wholepostinfo {
+    width: 96%;
+  }
 }
 
-@media(max-width: 550px){
-    .postform{
-        flex-direction: column;
-    }
-    .postdetails{
-        width: 100%;
-    }
-    .postimage{
-        width: 100%;
-        margin-top: 25px;
-    }
+@media (max-width: 550px) {
+  .postform {
+    flex-direction: column;
+  }
+  .postdetails {
+    width: 100%;
+  }
+  .postimage {
+    width: 100%;
+    margin-top: 25px;
+  }
 }
 @media (max-width: 320px) {
-    .postheading h3{
-        font-size: 20px;
-    }
-    .postdetails label{
-        font-size: 13px;
-    }
-    .pbutton{
-        padding: 8px 30px;
-        font-size: 13px;
-    }
+  .postheading h3 {
+    font-size: 20px;
+  }
+  .postdetails label {
+    font-size: 13px;
+  }
+  .pbutton {
+    padding: 8px 30px;
+    font-size: 13px;
+  }
 }

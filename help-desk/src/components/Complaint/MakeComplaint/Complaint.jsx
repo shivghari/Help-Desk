@@ -6,6 +6,8 @@ import Rating from "@mui/material/Rating";
 import StoreInUsestate from "../../../util/StoreInUsestate";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import Notification from "../../../util/Notification";
 
 function Complaint() {
   const [value, setValue] = useState(null);
@@ -130,7 +132,9 @@ function Complaint() {
                 className="complaint_button"
                 onClick={(e) => {
                   submitComplaint(e);
-                  console.log(complaintPhoto, "check photo here");
+                  Notification.successNotification(
+                    "Complaint Added Succesfully.."
+                  );
                 }}
               >
                 Make Complaint
@@ -163,6 +167,18 @@ function Complaint() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }

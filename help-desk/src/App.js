@@ -12,6 +12,7 @@ import Facultyprofile from "../src/components/FacultyProfile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Profile from "./components/Profile/Profile";
 import ProfileProtectedRoute from "./components/Profile/ProfileProtectedRoute";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -34,7 +35,11 @@ function App() {
               </>
             }
           ></Route>
-          <Route exact path="/facultyprofile" element={<Facultyprofile />}></Route>
+          <Route
+            exact
+            path="/facultyprofile"
+            element={<Facultyprofile />}
+          ></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

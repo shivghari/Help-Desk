@@ -7,6 +7,9 @@ import EditComplaint from "./EditComplaint";
 import DeleteComplaintById from "../../../util/DeleteComplaintById";
 import GetComplaintsByUserID from "../../../Hooks/GetComplaintsByUserID";
 
+// tostify Notifiation
+import { ToastContainer } from "react-toastify";
+
 function Yourcomplaint() {
   // const [editComplaint, seteditComplaint] = useState(false);
   const [selectedComplaint, setselectedComplaint] = useState({});
@@ -15,6 +18,7 @@ function Yourcomplaint() {
     "http://localhost:5000/getComplaint",
     selectedComplaint
   );
+
   return (
     <>
       <div className="yourcomplaint">
@@ -53,7 +57,6 @@ function Yourcomplaint() {
                             className="editcomplaint"
                             onClick={() => {
                               setselectedComplaint({ id: val._id });
-                              console.log("hola", selectedComplaint.keys);
                             }}
                           >
                             Edit Complaint
@@ -61,10 +64,11 @@ function Yourcomplaint() {
                           <button
                             className="deletecomplaint"
                             onClick={() => {
-                              var status = DeleteComplaintById.deleteComplaint(
-                                val._id
+                              DeleteComplaintById.deleteComplaint(
+                                val._id,
+                                setselectedComplaint
                               );
-                              console.log(status);
+                              // setselectedComplaint({ Notification: "delete" });
                             }}
                           >
                             Delete Comaplaint
@@ -84,6 +88,18 @@ function Yourcomplaint() {
             );
           })}
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }

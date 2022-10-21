@@ -22,8 +22,7 @@ function EditComplaint({ complaintID, setselectedComplaint }) {
     axios
       .put("http://localhost:5000/updatecomplaint", complaintData)
       .then((response) => {
-        setselectedComplaint({});
-        console.log(response);
+        setselectedComplaint({ Notification: "update" });
       })
       .catch((err) => {
         console.log("err", err);
