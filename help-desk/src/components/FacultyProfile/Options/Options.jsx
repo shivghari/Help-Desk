@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 export default function Options() {
   return (
     <>
-            <div className='wholefprofile'>
+            {/* <div className='wholefprofile'> */}
                 <div className='facultyinfo'>
                     <div className='fprofilesection'>
                         <img src="./images/Profile Image.png" alt="fprofileimg" className="fprofileimg"></img>
@@ -47,7 +47,7 @@ export default function Options() {
                         </Grid>
                     </Grid>
                 </div>
-                </div>
+                {/* </div> */}
             </>
   )
 }

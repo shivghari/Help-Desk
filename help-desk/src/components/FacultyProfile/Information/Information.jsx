@@ -7,7 +7,7 @@ import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 function Information() {
   return (
     <>
-    <div className="informationcontainer">
+    {/* <div className="informationcontainer"> */}
         <div className="fallinformation">
           <h3 className="finfoheading">All Information for you</h3>
           <div className="finfo">
@@ -44,7 +44,7 @@ function Information() {
             </div>
           </div>
         </div>
-    </div>
+    {/* </div> */}
     </>
   )
 }
