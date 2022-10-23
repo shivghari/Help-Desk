@@ -5,7 +5,7 @@ import { Avatar} from "@mui/material";
 function Managestudent() {
   return (
     <>
-        <div className='managecontainer'>
+        {/* <div className='managecontainer'> */}
         <div className="manageallinformation">
           <h3 className="manageinfoheading">Your Students - (Manage CR LR)</h3>
           <div className='allmanageinfo'>
@@ -35,7 +35,7 @@ function Managestudent() {
             </div>
         </div>
         </div>
-        </div>
+        {/* </div> */}
     </>
   )
 }

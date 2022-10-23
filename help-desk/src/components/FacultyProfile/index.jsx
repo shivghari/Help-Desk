@@ -8,10 +8,12 @@ import Postinformation from "./Postinformation/Postinformation";
 function Index() {
   return (
     <>
+    <div className="wholeFacultyprofile">
       <Options />
       <Postinformation />
       <Information />
       <Managestudent />
+    </div>
     </>
   );
 }
