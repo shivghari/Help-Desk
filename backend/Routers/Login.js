@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
       user: {
         id: user._id,
         enrollNo: user.enrollNo,
-        userName: user.userName,
+        role: user.role,
       },
     };
 
@@ -52,6 +52,7 @@ router.post("/login", async (req, res) => {
 router.post("/facultylogin", async (req, res) => {
   let success = false;
   //  If there are errors, return bad request and the errors
+  // here enrollment number is email add.
   const { enrollNo, password } = req.body;
   try {
     let user = await FacultiesSchema.findOne({ enrollNo });
@@ -73,8 +74,8 @@ router.post("/facultylogin", async (req, res) => {
     }
     const data = {
       user: {
-        email: user.email,
-        userName: user.userName,
+        id: user._id,
+        role: user.role,
       },
     };
 
@@ -92,6 +93,17 @@ router.post("/facultylogin", async (req, res) => {
 router.post("/getdatabyid", async (req, res) => {
   try {
     let user = await UserSchema.findById(req.body.id).select("-password");
+    res.status(200).json(user);
+  } catch (error) {
+    console.log("error in find userdata.", error);
+  }
+});
+
+//Route-4 get data of faculty
+
+router.post("/getfacdatabyid", async (req, res) => {
+  try {
+    let user = await FacultiesSchema.findById(req.body.id).select("-password");
     res.status(200).json(user);
   } catch (error) {
     console.log("error in find userdata.", error);

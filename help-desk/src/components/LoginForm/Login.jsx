@@ -24,7 +24,10 @@ export default function Login() {
         .then((response) => {
           console.log("Data Sent : ", response);
           localStorage.setItem("token", response.data.authtoken);
-          Navigate("/profile");
+          localStorage.setItem("id", response.data.data.user["id"]);
+          localStorage.setItem("role", response.data.data.user["role"]);
+
+          Navigate("/Facultyprofile");
         })
         .catch((err) => {
           console.log("Sonething Went Wrong : ", err);
@@ -39,6 +42,7 @@ export default function Login() {
           console.log("Data Sent : ", response);
           localStorage.setItem("token", response.data.authtoken);
           localStorage.setItem("id", response.data.data.user["id"]);
+          localStorage.setItem("role", response.data.data.user["role"]);
           Navigate("/profile");
         })
         .catch((err) => {

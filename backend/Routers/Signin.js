@@ -14,22 +14,22 @@ const path = require("path");
 const JWT_SECRET = "Darshanisagoodb$oy";
 
 // mailer Content
-let transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  auth: {
-    user: "shiv26.dds@gmail.com",
-    pass: "pkbskkmjkqoovaas",
-  },
-});
+// let transporter = nodemailer.createTransport({
+//   host: "smtp.gmail.com",
+//   auth: {
+//     user: "shiv26.dds@gmail.com",
+//     pass: "pkbskkmjkqoovaas",
+//   },
+// });
 
-transporter.verify((error, success) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("ready for messages");
-    console.log(success);
-  }
-});
+// transporter.verify((error, success) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log("ready for messages");
+//     console.log(success);
+//   }
+// });
 
 //body-parser configuration
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -133,17 +133,17 @@ router.post(
       success = true;
       res.json({ success, authtoken });
 
-      const mailOptions = {
-        from: "shiv26.dds@gmail.com",
-        to: user.email,
-        subject: "Your Credencials for SDI Login",
-        html: `<p>SDI Login Credentials</p> <br/> 
-                <p>Email Id : <strong>${user.email}</strong></p>
-                <p>Password : <strong>${user.password}</strong></p>
-        `,
-      };
+      // const mailOptions = {
+      //   from: "shiv26.dds@gmail.com",
+      //   to: user.email,
+      //   subject: "Your Credencials for SDI Login",
+      //   html: `<p>SDI Login Credentials</p> <br/>
+      //           <p>Email Id : <strong>${user.email}</strong></p>
+      //           <p>Password : <strong>${user.password}</strong></p>
+      //   `,
+      // };
 
-      await transporter.sendMail(mailOptions);
+      // await transporter.sendMail(mailOptions);
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Internal Server Error");

@@ -28,6 +28,7 @@ export default function Profile() {
         id: uid,
       })
       .then((response) => {
+        console.log(response.data, "Hola");
         setUserdata(response.data);
       })
       .catch((error) => {
