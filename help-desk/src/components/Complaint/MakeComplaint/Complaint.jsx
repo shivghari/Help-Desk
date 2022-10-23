@@ -8,6 +8,7 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import Notification from "../../../util/Notification";
+import ManageComplaint from "../ManageComplaint/ManageComplaint";
 
 function Complaint() {
   const [value, setValue] = useState(null);
@@ -166,6 +167,7 @@ function Complaint() {
             </div>
           </div>
         </div>
+        <ManageComplaint/>
       </div>
       <ToastContainer
         position="top-right"
