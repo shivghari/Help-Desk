@@ -95,7 +95,11 @@ export default function Navbar() {
                   }}
                   fontSize="large"
                   onClick={() => {
-                    Navigate("/profile");
+                    if (localStorage.getItem("role") === "student") {
+                      Navigate("/profile");
+                    } else if (localStorage.getItem("role") === "Faculty") {
+                      Navigate("/facultyprofile");
+                    }
                   }}
                 />
                 <button

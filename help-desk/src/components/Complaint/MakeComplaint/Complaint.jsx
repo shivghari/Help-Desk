@@ -167,7 +167,9 @@ function Complaint() {
             </div>
           </div>
         </div>
-        <ManageComplaint/>
+        {localStorage.getItem("role") === "Faculty" ? (
+          <ManageComplaint />
+        ) : null}
       </div>
       <ToastContainer
         position="top-right"

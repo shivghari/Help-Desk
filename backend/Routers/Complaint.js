@@ -75,6 +75,22 @@ router.post("/getComplaint", async (req, res) => {
   }
 });
 
+router.post("/getAllComplaint", async (req, res) => {
+  try {
+    ComplaintSchema.find({})
+      .populate("userID")
+      .then((data) => {
+        res.status(200).json(data);
+      })
+      .catch((e) => {
+        console.log(e);
+        res.status(300).json("Something Went Wring in Fetching Complaint 1");
+      });
+  } catch (e) {
+    res.status(300).json("Something Went Wring in Fetching Complaint");
+  }
+});
+
 router.put("/updatecomplaint", upload.single(""), async (req, res) => {
   try {
     const id = req.body.id;
