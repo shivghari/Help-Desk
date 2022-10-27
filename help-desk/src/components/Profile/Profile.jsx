@@ -5,15 +5,21 @@ import { Avatar, Rating } from "@mui/material";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
-import axios from "axios";
-import { useEffect } from "react";
+// import axios from "axios";
+// import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import GetCurrentUserData from "../../Hooks/GetCurrentUserData";
 
 import EditProfile from "./EditProfile";
 
 export default function Profile() {
-  const [userdata, setUserdata] = useState({});
   const [openEditProfile, setopenEditProfile] = useState(false);
+  // const [userdata, setUserdata] = useState({});
+
+  const userdata = GetCurrentUserData(
+    "http://localhost:5000/getdatabyid",
+    openEditProfile
+  );
 
   //function is to make changes in OpenEditprofile State from Child EditProfile Component
   const closeEditProfile = (action) => {
@@ -21,20 +27,20 @@ export default function Profile() {
   };
 
   const Navigate = useNavigate();
-  useEffect(() => {
-    let uid = localStorage.getItem("id");
-    axios
-      .post("http://localhost:5000/getdatabyid", {
-        id: uid,
-      })
-      .then((response) => {
-        console.log(response.data, "Hola");
-        setUserdata(response.data);
-      })
-      .catch((error) => {
-        console.log("Sonething Went Wrong : ", error);
-      });
-  }, [openEditProfile]);
+  // useEffect(() => {
+  //   let uid = localStorage.getItem("id");
+  //   axios
+  //     .post("http://localhost:5000/getdatabyid", {
+  //       id: uid,
+  //     })
+  //     .then((response) => {
+  //       console.log(response.data, "Hola");
+  //       setUserdata(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Sonething Went Wrong : ", error);
+  //     });
+  // }, [openEditProfile]);
   return (
     <>
       <div className="wholeprofile">
