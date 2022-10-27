@@ -1,0 +1,38 @@
+.EditProfileInput {
+  width: 80%;
+  height: 35px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  padding-left: 8px;
+  border: 2px solid #cfcfcf;
+  font-size: 15px;
+}
+
+.EditProfileInput:focus {
+  outline: none;
+}
+
+.editProfile {
+  padding: 8px 18px;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+  font-size: 14px;
+  width: 110px;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.calcellBtn {
+  padding: 8px 18px;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+  font-size: 14px;
+  width: 110px;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 5px;
+}

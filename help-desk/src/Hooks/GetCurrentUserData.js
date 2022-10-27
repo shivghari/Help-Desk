@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const GetCurrentUserData = (url) => {
+const GetCurrentUserData = (url, update) => {
   const [data, setdata] = useState({});
 
   useEffect(() => {
@@ -11,11 +11,12 @@ const GetCurrentUserData = (url) => {
       })
       .then((res) => {
         setdata(res.data);
+        console.log(res.data);
       })
       .catch((e) => {
         console.log("Problem in fetching Data");
       });
-  }, [url]);
+  }, [url, update]);
 
   return data;
 };

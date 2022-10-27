@@ -39,6 +39,10 @@ const FacultiesSchema = new Schema({
     type: Number,
   },
 
+  bio: {
+    type: String,
+  },
+
   studentList: {
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: "UserSchema" }],
   },

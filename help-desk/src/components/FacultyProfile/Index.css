@@ -1,10 +1,10 @@
-.wholeFacultyprofile{
-  width: fit-content;
+.wholeFacultyprofile {
+  width: 60%;
   margin: auto;
   height: fit-content;
 }
-@media(max-width: 375px){
-  .wholeFacultyprofile{
+@media (max-width: 375px) {
+  .wholeFacultyprofile {
     width: auto;
   }
 }

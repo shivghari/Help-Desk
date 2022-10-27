@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Options.css";
 import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router-dom";
 import GetCurrentUserData from "../../../Hooks/GetCurrentUserData";
+import EditFacultyProfile from "./EditFacultyProfile";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
 
 export default function Options() {
-  const userData = GetCurrentUserData("http://localhost:5000/getfacdatabyid");
+  const [openEditProfile, setopenEditProfile] = useState(false);
+  const userData = GetCurrentUserData(
+    "http://localhost:5000/getfacdatabyid",
+    openEditProfile
+  );
   const Navigate = useNavigate();
+
+  //Function to handle the open and Close the EditFacultyProfile Component
+  const closeEditProfile = (action) => {
+    setopenEditProfile(action);
+  };
 
   return (
     <>
@@ -18,11 +29,7 @@ export default function Options() {
             alt="fprofileimg"
             className="fprofileimg"
           ></img>
-          <img
-            src="./images/camera.png"
-            alt="fcameraimg"
-            className="fcameraimg"
-          ></img>
+          <CameraAltIcon fontSize="large" />
         </div>
         <div className="fprofiledetails">
           <h3>{userData?.userName}</h3>
@@ -31,15 +38,24 @@ export default function Options() {
           <h5>{userData?.email}</h5>
           <h5>{userData?.mobileNo}</h5>
           <h5>{userData?.role}</h5>
-          <p>
-            I have a great interest in Designing and i would like to continue
-            with this skill through my carrier
-          </p>
+          <p>{userData?.bio}</p>
         </div>
         <div className="feditprofile">
-          <button className="feditp">Edit Profile</button>
+          <button
+            className="feditp"
+            onClick={() => {
+              setopenEditProfile(true);
+            }}
+          >
+            Edit Profile
+          </button>
         </div>
       </div>
+      {openEditProfile === true ? (
+        <div>
+          <EditFacultyProfile closeEditProfile={closeEditProfile} />
+        </div>
+      ) : null}
       <div className="fservices">
         <h3>Services...</h3>
         <Grid container spacing={2}>
@@ -80,7 +96,6 @@ export default function Options() {
           </Grid>
         </Grid>
       </div>
-      {/* </div> */}
     </>
   );
 }
