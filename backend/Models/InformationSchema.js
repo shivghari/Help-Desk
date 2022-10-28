@@ -14,7 +14,7 @@ const InformationSchema = new Schema(
     },
     author: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "UserSchema",
+      ref: "FacultiesSchema",
     },
     image: {
       type: String,
@@ -23,6 +23,7 @@ const InformationSchema = new Schema(
       type: String,
       default: "all",
     },
+    like: [{ type: mongoose.Schema.Types.ObjectId, ref: "UserSchema" }],
   },
   { timestamps: true }
 );
