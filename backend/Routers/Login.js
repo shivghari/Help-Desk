@@ -110,4 +110,16 @@ router.post("/getfacdatabyid", async (req, res) => {
   }
 });
 
+// Route-5 get all Student
+router.get("/getallstudent", async (req, res) => {
+  try {
+    let student = await UserSchema.find({});
+    res.status(200).json(student);
+  } catch (e) {
+    res
+      .status(300)
+      .json({ message: "Something went wring in fetching Student Data" });
+  }
+});
+
 module.exports = router;
