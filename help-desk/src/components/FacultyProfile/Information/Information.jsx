@@ -11,9 +11,8 @@ import moment from "moment";
 import InfoGestures from "../../../util/InfoGestures";
 
 function Information() {
-  const [like, setlike] = useState(false);
+  // const [like, setlike] = useState(false);
   const [dislike, setdislike] = useState(true);
-  const [selectedInfo, setselectedInfo] = useState({});
 
   const allinfo = GetAllInformation(
     "http://localhost:5000/getallinformation",
@@ -48,45 +47,30 @@ function Information() {
                     <p>{info?.desc}</p>
                     <h5>{moment(info?.createdAt).format("MMMM d, YYYY")}</h5>
                     <div className="flike">
-                      {dislike === true && like === false ? (
+                      {!info?.like?.includes(localStorage.getItem("id")) ? (
                         <FavoriteBorderIcon
                           fontSize="medium"
                           onClick={() => {
-                            setdislike(false);
-                            setlike(true);
-                            setselectedInfo({ id: info?._id });
+                            // setlike(true);
+                            // setselectedInfo({ id: info?._id });
                             InfoGestures.gestures(
                               info._id,
                               "http://localhost:5000/likeinfo",
                               localStorage.getItem("id")
                             );
+                            setdislike(!dislike);
                           }}
                         />
-                      ) : selectedInfo["id"] === info?._id ? (
+                      ) : (
                         <FavoriteIcon
                           fontSize="medium"
                           onClick={() => {
-                            setlike(false);
-                            setdislike(true);
                             InfoGestures.gestures(
                               info._id,
                               "http://localhost:5000/dislikeinfo",
                               localStorage.getItem("id")
                             );
-                          }}
-                        />
-                      ) : (
-                        <FavoriteBorderIcon
-                          fontSize="medium"
-                          onClick={() => {
-                            setdislike(false);
-                            setlike(true);
-                            setselectedInfo({ id: info?._id });
-                            InfoGestures.gestures(
-                              info._id,
-                              "http://localhost:5000/likeinfo",
-                              localStorage.getItem("id")
-                            );
+                            setdislike(!dislike);
                           }}
                         />
                       )}
