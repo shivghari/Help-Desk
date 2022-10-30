@@ -3,6 +3,8 @@ import "./EditProfile.css";
 import StoreInUsestate from "../../util/StoreInUsestate";
 import axios from "axios";
 import GetCurrentUserData from "../../Hooks/GetCurrentUserData";
+import Notification from "../../util/Notification";
+import { ToastContainer } from "react-toastify";
 
 function EditProfile({ closeEditProfile }) {
   const [editProfileData, seteditProfileData] = useState({
@@ -26,9 +28,13 @@ function EditProfile({ closeEditProfile }) {
       })
       .then(() => {
         console.log("Data Submit");
+        Notification.successNotification("Profile Updated Successfully.");
       })
       .catch((e) => {
         console.log("Something went wrong");
+        Notification.errorNotification(
+          "Something Went Wrong. Please Try Later..."
+        );
       });
   }
 
@@ -105,6 +111,18 @@ function EditProfile({ closeEditProfile }) {
           Cancel
         </button>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }

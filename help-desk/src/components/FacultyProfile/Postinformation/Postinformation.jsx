@@ -3,6 +3,8 @@ import "./Postinformation.css";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import StoreInUsestate from "../../../util/StoreInUsestate";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import Notification from "../../../util/Notification";
 
 function Postinformation() {
   const [infoData, setinfoData] = useState({
@@ -26,9 +28,13 @@ function Postinformation() {
       .post("http://localhost:5000/postinformation", InformationData)
       .then((response) => {
         console.log(response);
+        Notification.successNotification("Information Posted Successfully.");
       })
       .catch((e) => {
         console.log(e, "err");
+        Notification.errorNotification(
+          "Something Went Wrong? Try Again Later..."
+        );
       });
   };
 
@@ -134,6 +140,18 @@ function Postinformation() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }

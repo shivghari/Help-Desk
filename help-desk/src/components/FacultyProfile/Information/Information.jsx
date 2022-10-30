@@ -45,7 +45,9 @@ function Information() {
                     <h5>{info?.author?.role}</h5>
                     <h4>{info?.title}</h4>
                     <p>{info?.desc}</p>
-                    <h5>{moment(info?.createdAt).format("MMMM d, YYYY")}</h5>
+                    <h5>
+                      {moment(info?.createdAt).format("MMMM DD, YYYY : dddd")}
+                    </h5>
                     <div className="flike">
                       {!info?.like?.includes(localStorage.getItem("id")) ? (
                         <FavoriteBorderIcon

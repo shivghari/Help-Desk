@@ -1,9 +1,11 @@
 import React from "react";
+import { useState } from "react";
 import "./Managestudent.css";
 import { Avatar } from "@mui/material";
 import GetAllInformation from "../../../Hooks/GetAllInformation";
 import MakeCRLR from "../../../util/MakeCRLR";
-import { useState } from "react";
+import Notification from "../../../util/Notification";
+import { ToastContainer } from "react-toastify";
 
 function Managestudent() {
   const [toggle, setoggle] = useState(false);
@@ -42,6 +44,9 @@ function Managestudent() {
                         className="mbutton"
                         onClick={() => {
                           MakeCRLR.dismissCRLR(std?._id);
+                          Notification.errorNotification(
+                            "Student Remove From CR/ LR Post"
+                          );
                           setoggle(!toggle);
                         }}
                       >
@@ -54,6 +59,9 @@ function Managestudent() {
                           className="mbutton"
                           onClick={() => {
                             MakeCRLR.makeCR(std?._id);
+                            Notification.successNotification(
+                              "Student Appointed as CR"
+                            );
                             setoggle(!toggle);
                           }}
                         >
@@ -64,6 +72,9 @@ function Managestudent() {
                           className="mbutton"
                           onClick={() => {
                             MakeCRLR.makeLR(std?._id);
+                            Notification.successNotification(
+                              "Student Appointed as LR"
+                            );
                             setoggle(!toggle);
                           }}
                         >
@@ -78,6 +89,18 @@ function Managestudent() {
         </div>
       </div>
       {/* </div> */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }

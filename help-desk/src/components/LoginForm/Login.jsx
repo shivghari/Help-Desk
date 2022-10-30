@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
-
+import Notification from "../../util/Notification";
 import StoreInUsestate from "../../util/StoreInUsestate";
+import { ToastContainer } from "react-toastify";
 
 export default function Login() {
   const Navigate = useNavigate();
@@ -26,11 +27,12 @@ export default function Login() {
           localStorage.setItem("token", response.data.authtoken);
           localStorage.setItem("id", response.data.data.user["id"]);
           localStorage.setItem("role", response.data.data.user["role"]);
-
+          Notification.successNotification("Login Successfull.");
           Navigate("/Facultyprofile");
         })
         .catch((err) => {
           console.log("Sonething Went Wrong : ", err);
+          Notification.errorNotification("Please Enter Correct Credentials.");
         });
     } else {
       axios
@@ -43,10 +45,12 @@ export default function Login() {
           localStorage.setItem("token", response.data.authtoken);
           localStorage.setItem("id", response.data.data.user["id"]);
           localStorage.setItem("role", response.data.data.user["role"]);
+          Notification.successNotification("Login Successfull.");
           Navigate("/profile");
         })
         .catch((err) => {
           console.log("Sonething Went Wrong : ", err);
+          Notification.errorNotification("Please Enter Valid Credentials. ");
         });
     }
   };
@@ -92,6 +96,18 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }
