@@ -29,4 +29,23 @@ router.post("/editFacultyProfile", Verifytoken, async (req, res) => {
   }
 });
 
+router.post("/makecrlr", async (req, res) => {
+  try {
+    UserSchema.updateOne(
+      { _id: req.body.userID },
+      {
+        role: req.body.post,
+      }
+    )
+      .then((response) => {
+        res.status(200).json({ message: "Student Role is Changed" });
+      })
+      .catch((e) => {
+        res.status(300).json({ message: "Something Went Worng..." });
+      });
+  } catch (e) {
+    res.status(300).json({ message: "Something Went Wrong..." });
+  }
+});
+
 module.exports = router;
